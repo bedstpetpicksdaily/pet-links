@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bensons Pet Picks</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:#080810;
+      background-image:radial-gradient(ellipse at 50% -10%,#1e0a3c 0%,#080810 65%);
+      min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      color:#e0e0e0;
+      display:flex;flex-direction:column;align-items:center;
+      padding:48px 20px 72px;
+    }
+    .profile{text-align:center;margin-bottom:36px}
+    .avatar{
+      width:90px;height:90px;border-radius:50%;
+      background:linear-gradient(135deg,#7b3fbc,#1a6bbf);
+      display:flex;align-items:center;justify-content:center;
+      font-size:38px;margin:0 auto 16px;
+      box-shadow:0 0 40px rgba(123,63,188,0.55);
+    }
+    .profile h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+    .handle{font-size:13px;color:#777;margin-bottom:10px}
+    .bio{font-size:14px;color:#aaa;max-width:300px;margin:0 auto;line-height:1.55}
+    .links{width:100%;max-width:500px;display:flex;flex-direction:column;gap:12px}
+    a.card{
+      display:flex;align-items:center;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:16px;padding:15px 18px;
+      text-decoration:none;color:inherit;
+      transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;
+    }
+    a.card:hover{
+      background:rgba(123,63,188,0.18);
+      border-color:rgba(123,63,188,0.45);
+      transform:translateY(-2px);
+      box-shadow:0 6px 24px rgba(123,63,188,0.2);
+    }
+    .emoji{font-size:28px;margin-right:16px;flex-shrink:0;line-height:1}
+    .text{flex:1;min-width:0}
+    .name{font-size:15px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .desc{font-size:12px;color:#777;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .arrow{color:#444;font-size:16px;margin-left:12px;flex-shrink:0}
+    footer{margin-top:44px;font-size:11px;color:#333;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="profile">
+    <div class="avatar">🐾</div>
+    <h1>Bensons Pet Picks</h1>
+    <div class="handle">@your_tiktok_handle</div>
+    <div class="bio">Top-rated pet products I actually recommend</div>
+  </div>
+  <div class="links">
+    <a class="card" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛒</span><div class="text"><div class="name">Amazon Pet Favorites</div><div class="desc">Every product I talk about on Amazon</div></div><span class="arrow">›</span></a>
+  </div>
+  <footer>Updated Jun 24, 2026</footer>
+</body>
+</html>
