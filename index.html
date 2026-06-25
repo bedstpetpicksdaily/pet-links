@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bensons Pet Picks</title>
+  <title>Best Pet Picks Daily - Top Amazon Pet Products</title>
+  <meta name="description" content="The best pet products on Amazon, reviewed daily. Dogs, cats, and every fur baby. Shop affiliate links curated by real pet owners.">
+  <meta property="og:title" content="Best Pet Picks Daily">
+  <meta property="og:description" content="Top-rated Amazon pet products updated daily. Link in bio.">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{
@@ -13,62 +16,261 @@
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       color:#e0e0e0;
       display:flex;flex-direction:column;align-items:center;
-      padding:48px 20px 72px;
+      padding:40px 20px 80px;
     }
-    .profile{text-align:center;margin-bottom:36px}
+
+    /* Profile */
+    .profile{text-align:center;margin-bottom:28px}
     .avatar{
       width:90px;height:90px;border-radius:50%;
       background:linear-gradient(135deg,#7b3fbc,#1a6bbf);
       display:flex;align-items:center;justify-content:center;
-      font-size:38px;margin:0 auto 16px;
-      box-shadow:0 0 40px rgba(123,63,188,0.55);
+      font-size:38px;margin:0 auto 14px;
+      box-shadow:0 0 40px rgba(123,63,188,0.6);
+      animation:pulse 3s ease-in-out infinite;
     }
-    .profile h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
-    .handle{font-size:13px;color:#777;margin-bottom:10px}
-    .bio{font-size:14px;color:#aaa;max-width:300px;margin:0 auto;line-height:1.55}
-    .links{width:100%;max-width:500px;display:flex;flex-direction:column;gap:12px}
+    @keyframes pulse{0%,100%{box-shadow:0 0 40px rgba(123,63,188,.55)}50%{box-shadow:0 0 60px rgba(123,63,188,.85)}}
+    .profile h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:3px}
+    .handle{font-size:13px;color:#666;margin-bottom:8px}
+    .bio{font-size:14px;color:#999;max-width:320px;margin:0 auto 14px;line-height:1.55}
+
+    /* Social links */
+    .socials{display:flex;gap:10px;justify-content:center;margin-bottom:20px}
+    .social-btn{
+      display:flex;align-items:center;gap:6px;
+      padding:7px 14px;border-radius:20px;
+      font-size:12px;font-weight:600;text-decoration:none;
+      border:1px solid rgba(255,255,255,0.1);
+      color:#ccc;transition:all .2s;background:rgba(255,255,255,0.04);
+    }
+    .social-btn:hover{background:rgba(255,255,255,0.1);color:#fff}
+    .social-icon{font-size:15px}
+
+    /* Stats bar */
+    .stats{
+      display:flex;gap:24px;justify-content:center;margin-bottom:28px;
+      font-size:12px;color:#555;
+    }
+    .stat strong{color:#8a5cf7;font-size:14px}
+
+    /* Deal of the day */
+    .deal-section{width:100%;max-width:500px;margin-bottom:20px}
+    .deal-label{font-size:11px;font-weight:700;color:#ff6b35;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+    .deal-card{
+      background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(123,63,188,.12));
+      border:1px solid rgba(255,107,53,.3);
+      border-radius:16px;padding:16px 18px;
+      display:flex;align-items:center;text-decoration:none;color:inherit;
+      transition:all .2s;
+    }
+    .deal-card:hover{border-color:rgba(255,107,53,.6);transform:translateY(-2px)}
+    .deal-emoji{font-size:30px;margin-right:14px;flex-shrink:0}
+    .deal-text{flex:1}
+    .deal-name{font-size:15px;font-weight:700;color:#fff}
+    .deal-desc{font-size:12px;color:#f97316;margin-top:3px}
+    .deal-badge{
+      background:#ff6b35;color:#fff;font-size:10px;font-weight:800;
+      padding:3px 10px;border-radius:20px;flex-shrink:0;margin-left:10px;
+      letter-spacing:.05em;
+    }
+
+    /* Main links */
+    .section-label{
+      width:100%;max-width:500px;
+      font-size:11px;font-weight:700;color:#555;letter-spacing:.08em;
+      text-transform:uppercase;margin:16px 0 10px;
+    }
+    .links{width:100%;max-width:500px;display:flex;flex-direction:column;gap:10px}
     a.card{
       display:flex;align-items:center;
       background:rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.07);
-      border-radius:16px;padding:15px 18px;
+      border-radius:14px;padding:14px 16px;
       text-decoration:none;color:inherit;
-      transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;
+      transition:all .2s;
+      position:relative;overflow:hidden;
     }
     a.card:hover{
-      background:rgba(123,63,188,0.18);
+      background:rgba(123,63,188,0.16);
       border-color:rgba(123,63,188,0.45);
       transform:translateY(-2px);
-      box-shadow:0 6px 24px rgba(123,63,188,0.2);
+      box-shadow:0 6px 24px rgba(123,63,188,0.18);
     }
-    .emoji{font-size:28px;margin-right:16px;flex-shrink:0;line-height:1}
+    .emoji{font-size:26px;margin-right:14px;flex-shrink:0;line-height:1}
     .text{flex:1;min-width:0}
-    .name{font-size:15px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .desc{font-size:12px;color:#777;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .arrow{color:#444;font-size:16px;margin-left:12px;flex-shrink:0}
-    footer{margin-top:44px;font-size:11px;color:#333;text-align:center}
+    .name{font-size:14px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .desc{font-size:11px;color:#666;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .arrow{color:#444;font-size:15px;margin-left:10px;flex-shrink:0}
+    .badge-new{
+      position:absolute;top:8px;right:36px;
+      background:#7b3fbc;color:#fff;font-size:9px;font-weight:800;
+      padding:2px 7px;border-radius:10px;letter-spacing:.05em;
+    }
+    .badge-hot{
+      position:absolute;top:8px;right:36px;
+      background:#ef4444;color:#fff;font-size:9px;font-weight:800;
+      padding:2px 7px;border-radius:10px;letter-spacing:.05em;
+    }
+
+    /* Email signup */
+    .signup-section{
+      width:100%;max-width:500px;margin-top:28px;
+      background:rgba(123,63,188,0.1);
+      border:1px solid rgba(123,63,188,0.2);
+      border-radius:16px;padding:20px;text-align:center;
+    }
+    .signup-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+    .signup-sub{font-size:12px;color:#777;margin-bottom:14px}
+    .signup-form{display:flex;gap:8px;max-width:360px;margin:0 auto}
+    .signup-input{
+      flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+      border-radius:8px;padding:10px 14px;color:#fff;font-size:13px;outline:none;
+    }
+    .signup-input::placeholder{color:#555}
+    .signup-btn{
+      background:linear-gradient(135deg,#7b3fbc,#1a6bbf);
+      color:#fff;border:none;border-radius:8px;padding:10px 18px;
+      font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+      text-decoration:none;display:flex;align-items:center;
+    }
+
+    /* Blog link */
+    .blog-link{
+      width:100%;max-width:500px;margin-top:12px;
+      display:flex;align-items:center;gap:12px;
+      background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;padding:12px 16px;text-decoration:none;color:#aaa;
+      transition:all .2s;font-size:13px;
+    }
+    .blog-link:hover{color:#fff;border-color:rgba(255,255,255,0.15)}
+
+    footer{margin-top:40px;font-size:11px;color:#2a2a2a;text-align:center;line-height:1.8}
+    footer a{color:#333;text-decoration:none}
+    footer a:hover{color:#666}
   </style>
 </head>
 <body>
+
+  <!-- Profile -->
   <div class="profile">
     <div class="avatar">🐾</div>
-    <h1>Bensons Pet Picks</h1>
+    <h1>Best Pet Picks Daily</h1>
     <div class="handle">@bestpetpicksdaily</div>
-    <div class="bio">Top-rated pet products I actually recommend</div>
+    <div class="bio">The best Amazon pet products — tested, reviewed, and updated daily. Your pet deserves the best.</div>
+    <div class="socials">
+      <a class="social-btn" href="https://www.tiktok.com/@bestpetpicksdaily" target="_blank" rel="noopener">
+        <span class="social-icon">📱</span> TikTok
+      </a>
+      <a class="social-btn" href="https://www.youtube.com/@bestpetpicksdaily" target="_blank" rel="noopener">
+        <span class="social-icon">▶️</span> YouTube
+      </a>
+      <a class="social-btn" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener">
+        <span class="social-icon">🛒</span> Amazon
+      </a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>Daily</strong><br>New Finds</div>
+      <div class="stat"><strong>4★+</strong><br>Only</div>
+      <div class="stat"><strong>Free</strong><br>Prime Ship</div>
+    </div>
   </div>
+
+  <!-- Deal of the Day -->
+  <div class="deal-section">
+    <div class="deal-label">🔥 Deal of the Day</div>
+    <a class="deal-card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="deal-emoji">🐶</span>
+      <div class="deal-text">
+        <div class="deal-name">Slow Feeder Dog Bowl</div>
+        <div class="deal-desc">Stop bloat — vets recommend this daily</div>
+      </div>
+      <span class="deal-badge">TOP PICK</span>
+    </a>
+  </div>
+
+  <!-- All Products -->
+  <div class="section-label">All Pet Picks</div>
   <div class="links">
-    <a class="card" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛒</span><div class="text"><div class="name">Amazon Pet Favorites</div><div class="desc">Every product I talk about on Amazon</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=automatic+laser+cat+toy+interactive+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🐱</span><div class="text"><div class="name">Automatic Laser Cat Toy</div><div class="desc">Cats chasing the laser creates instantly shareable, funny co</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🐶</span><div class="text"><div class="name">Slow Feeder Dog Bowl</div><div class="desc">Side-by-side videos of dogs eating normally vs. struggling a</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=self+cleaning+slicker+brush+dog+cat+grooming+retractable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">✨</span><div class="text"><div class="name">Self-Cleaning Slicker Pet Brush</div><div class="desc">The satisfying moment of pressing the button to eject a mass</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+lick+mat+suction+cup+bath+distraction+slow+feeder&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛁</span><div class="text"><div class="name">Dog Lick Mat with Suction Cup</div><div class="desc">Bath-time chaos transformed into a calm dog licking peanut b</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=cat+dog+water+fountain+automatic+circulating+filter+stainless&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">💧</span><div class="text"><div class="name">Pet Water Fountain Filter Dispenser</div><div class="desc">Showing pets refusing a still water bowl then happily drinki</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=enzyme+pet+odor+eliminator+spray+urine+stain&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">💨</span><div class="text"><div class="name">Enzyme Pet Odor Eliminator</div><div class="desc">Destroys pet odors and stains instantly</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=interactive+automatic+laser+cat+toy+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🔵</span><div class="text"><div class="name">Interactive Laser Cat Toy</div><div class="desc">Keeps cats entertained for hours</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=orthopedic+memory+foam+dog+bed+large+washable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛌</span><div class="text"><div class="name">Orthopedic Memory Foam Dog Bed</div><div class="desc">Joint support for dogs of all ages</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=grain+free+dog+treats+natural+training+rewards&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🐶</span><div class="text"><div class="name">Grain Free Dog Treats</div><div class="desc">Healthy treats dogs go crazy for</div></div><span class="arrow">›</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=gps+pet+tracker+collar+dog+cat+waterproof&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">📍</span><div class="text"><div class="name">GPS Pet Tracker Collar</div><div class="desc">Never lose your pet again</div></div><span class="arrow">›</span></a>
+    <a class="card" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">🛒</span>
+      <div class="text"><div class="name">Browse All on Amazon</div><div class="desc">Every product I recommend — with my affiliate tag</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=automatic+laser+cat+toy+interactive+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="badge-hot">HOT</span>
+      <span class="emoji">🐱</span>
+      <div class="text"><div class="name">Automatic Laser Cat Toy</div><div class="desc">Keeps cats entertained for hours, hands-free</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">🐶</span>
+      <div class="text"><div class="name">Slow Feeder Dog Bowl</div><div class="desc">Stop bloat — vet recommended, under $20</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=self+cleaning+slicker+brush+dog+cat+grooming+retractable&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="badge-new">NEW</span>
+      <span class="emoji">✨</span>
+      <div class="text"><div class="name">Self-Cleaning Slicker Brush</div><div class="desc">One click and the fur just pops off</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=dog+lick+mat+suction+cup+bath+distraction+slow+feeder&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">🛁</span>
+      <div class="text"><div class="name">Dog Lick Mat with Suction Cup</div><div class="desc">Bath time game changer — sticks to the wall</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=cat+dog+water+fountain+automatic+circulating+filter+stainless&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">💧</span>
+      <div class="text"><div class="name">Pet Water Fountain Filter</div><div class="desc">Pets drink 3x more water — filtered and fresh</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=enzyme+pet+odor+eliminator+spray+urine+stain&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">💨</span>
+      <div class="text"><div class="name">Enzyme Pet Odor Eliminator</div><div class="desc">Eliminates odors at the source, not just masks them</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=interactive+automatic+laser+cat+toy+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">🔵</span>
+      <div class="text"><div class="name">Interactive Laser Cat Toy</div><div class="desc">Auto-rotating laser keeps cats active all day</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=orthopedic+memory+foam+dog+bed+large+washable&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">🛌</span>
+      <div class="text"><div class="name">Orthopedic Memory Foam Dog Bed</div><div class="desc">Vet-recommended joint support for any age dog</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=grain+free+dog+treats+natural+training+rewards&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">🦴</span>
+      <div class="text"><div class="name">Grain Free Dog Treats</div><div class="desc">Clean ingredients, dogs go absolutely crazy for these</div></div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="https://www.amazon.com/s?k=gps+pet+tracker+collar+dog+cat+waterproof&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="emoji">📍</span>
+      <div class="text"><div class="name">GPS Pet Tracker Collar</div><div class="desc">Real-time location — never lose your pet again</div></div>
+      <span class="arrow">›</span>
+    </a>
   </div>
-  <footer>Updated Jun 25, 2026</footer>
+
+  <!-- Blog -->
+  <a class="blog-link" href="https://bedstpetpicksdaily.github.io/pet-links/blog/" target="_blank" rel="noopener">
+    <span style="font-size:18px">📖</span>
+    <span>Read full product reviews &rarr;</span>
+  </a>
+
+  <!-- Email Signup -->
+  <div class="signup-section">
+    <div class="signup-title">Get weekly pet deals in your inbox 🐾</div>
+    <div class="signup-sub">5 Amazon finds every Sunday. Free, no spam, unsubscribe anytime.</div>
+    <div class="signup-form">
+      <input class="signup-input" type="email" placeholder="your@email.com" id="email-input">
+      <a class="signup-btn" href="mailto:rilynd81@gmail.com?subject=Subscribe%20to%20Pet%20Picks&body=Please%20add%20me%20to%20the%20weekly%20pet%20deals%20list!" id="signup-btn">Join</a>
+    </div>
+  </div>
+
+  <footer>
+    Updated daily by AI &bull; <a href="privacy-policy.html">Privacy Policy</a> &bull; <a href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener">Amazon Store</a><br>
+    As an Amazon Associate I earn from qualifying purchases.<br>
+    &copy; 2026 Best Pet Picks Daily
+  </footer>
+
 </body>
 </html>
