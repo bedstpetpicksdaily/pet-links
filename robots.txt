@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /google*.html
-
-Sitemap: https://bedstpetpicksdaily.github.io/pet-links/sitemap.xml
+Sitemap: https://bestpetpicksdaily.com/sitemap.xml
