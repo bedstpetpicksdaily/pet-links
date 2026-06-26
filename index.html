@@ -71,20 +71,20 @@
   </div>
   <div class="deal-section">
     <div class="deal-label">🔥 Deal of the Day</div>
-    <a class="deal-card" href="https://www.amazon.com/s?k=automatic+laser+cat+toy+interactive+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener">
-      <span class="deal-emoji">🐱</span>
+    <a class="deal-card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener">
+      <span class="deal-emoji">🐶</span>
       <div class="deal-text">
-        <div class="deal-name">Automatic Laser Cat Toy</div>
-        <div class="deal-desc">Cats chasing the laser creates instantly shareable, funny co</div>
+        <div class="deal-name">Slow Feeder Dog Bowl</div>
+        <div class="deal-desc">Side-by-side videos of dogs eating normally vs. struggling a</div>
       </div>
       <span class="deal-badge">TOP PICK</span>
     </a>
   </div>
   <div class="section-label">All Pet Picks</div>
   <div class="links">
+    <a class="card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-hot">HOT</span><span class="emoji">🐶</span><div class="text"><div class="name">Slow Feeder Dog Bowl</div><div class="desc">Side-by-side videos of dogs eating normally vs. struggl</div></div><span class="arrow">&#x203A;</span></a>
     <a class="card" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛒</span><div class="text"><div class="name">Amazon Pet Favorites</div><div class="desc">Every product I talk about on Amazon</div></div><span class="arrow">&#x203A;</span></a>
     <a class="card" href="https://www.amazon.com/s?k=automatic+laser+cat+toy+interactive+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-hot">HOT</span><span class="emoji">🐱</span><div class="text"><div class="name">Automatic Laser Cat Toy</div><div class="desc">Cats chasing the laser creates instantly shareable, fun</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-hot">HOT</span><span class="emoji">🐶</span><div class="text"><div class="name">Slow Feeder Dog Bowl</div><div class="desc">Side-by-side videos of dogs eating normally vs. struggl</div></div><span class="arrow">&#x203A;</span></a>
     <a class="card" href="https://www.amazon.com/s?k=self+cleaning+slicker+brush+dog+cat+grooming+retractable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">✨</span><div class="text"><div class="name">Self-Cleaning Slicker Pet Brush</div><div class="desc">The satisfying moment of pressing the button to eject a</div></div><span class="arrow">&#x203A;</span></a>
     <a class="card" href="https://www.amazon.com/s?k=dog+lick+mat+suction+cup+bath+distraction+slow+feeder&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛁</span><div class="text"><div class="name">Dog Lick Mat with Suction Cup</div><div class="desc">Bath-time chaos transformed into a calm dog licking pea</div></div><span class="arrow">&#x203A;</span></a>
     <a class="card" href="https://www.amazon.com/s?k=cat+dog+water+fountain+automatic+circulating+filter+stainless&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">💧</span><div class="text"><div class="name">Pet Water Fountain Filter Dispenser</div><div class="desc">Showing pets refusing a still water bowl then happily d</div></div><span class="arrow">&#x203A;</span></a>
@@ -114,5 +114,21 @@
     </div>
   </div>
   <footer>Updated Jun 26, 2026 &bull; <a href="privacy-policy.html">Privacy Policy</a> &bull; As an Amazon Associate I earn from qualifying purchases.</footer>
+<script>
+(function(){
+  var s=81548;
+  var el=document.createElement('div');
+  el.style.cssText='text-align:center;font-size:11px;color:#ff6b35;margin-top:6px;font-weight:700;letter-spacing:.05em';
+  var deal=document.querySelector('.deal-section');
+  if(deal)deal.appendChild(el);
+  function tick(){
+    s--;if(s<=0)return;
+    var h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;
+    el.textContent='Deal resets in '+h+'h '+m+'m '+sc+'s';
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>
