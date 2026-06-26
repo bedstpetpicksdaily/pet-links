@@ -250,5 +250,30 @@
     <a class="promo-link promo-bsky" href="https://bsky.app/profile/bestpetpicksdaily.bsky.social" target="_blank" rel="noopener">Bluesky</a>
   </div>
 </div>
+<!-- email-popup -->
+<div id="benson-popup" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;
+  background:#fff;border-radius:16px;padding:20px 22px;max-width:320px;width:90%;
+  box-shadow:0 8px 40px rgba(0,0,0,.18);border:1px solid #eee">
+  <button onclick="document.getElementById('benson-popup').style.display='none'"
+    style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:1.2em;cursor:pointer;color:#aaa">&times;</button>
+  <p style="margin:0 0 4px;font-size:.8em;color:#888;text-transform:uppercase;letter-spacing:1px">Free Weekly Deals</p>
+  <h3 style="margin:0 0 10px;font-size:1em;color:#111">Get the best pet deals straight to your inbox</h3>
+  <a href="https://t.me/bestpetpicksdailyy" target="_blank"
+  style="display:block;background:#ff9900;color:#000;padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none;text-align:center;font-size:.95em">
+  Join Free on Telegram &rarr;
+</a>
+  <p style="margin:8px 0 0;font-size:.72em;color:#bbb">No spam. Unsubscribe anytime.</p>
+</div>
+<script>
+(function(){
+  var shown = sessionStorage.getItem('benson_popup');
+  if (!shown) {
+    setTimeout(function() {
+      document.getElementById('benson-popup').style.display = 'block';
+      sessionStorage.setItem('benson_popup', '1');
+    }, 25000);
+  }
+})();
+</script>
 </body>
 </html>
