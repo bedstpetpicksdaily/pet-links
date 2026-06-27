@@ -3,149 +3,431 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>B.E.N.S.O.N. — My AI Business Agent</title>
+<title>B.E.N.S.O.N. — My AI Agent</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#06060f;color:#e0e0f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+body{background:#06060f;color:#e0e0f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding-bottom:40px}
+h2{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7b3fbc;padding:0 20px;margin:24px 0 12px}
+.card{background:#0d0d1a;border:1px solid #7b3fbc22;border-radius:16px;margin:0 16px 14px;padding:18px 20px}
 
-.hero{background:linear-gradient(160deg,#0d0d2e,#1a0a2e,#0a0a1a);padding:40px 24px 32px;text-align:center}
-
-.avatar-wrap{position:relative;display:inline-block;margin-bottom:24px}
-.orb{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a060e0,#5020a0,#1a0a2e);
+.hero{background:linear-gradient(160deg,#0d0d2e,#1a0a2e,#0a0a1a);padding:36px 24px 28px;text-align:center}
+.avatar-wrap{position:relative;display:inline-block;margin-bottom:20px}
+.orb{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a060e0,#5020a0,#1a0a2e);
   border:2px solid #7b3fbc;box-shadow:0 0 40px #7b3fbc88,0 0 80px #7b3fbc44;
-  display:flex;align-items:center;justify-content:center;position:relative;animation:float 4s ease-in-out infinite}
+  display:flex;align-items:center;justify-content:center;animation:float 4s ease-in-out infinite;position:relative}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.eyes{display:flex;gap:18px;align-items:center}
-.eye{width:16px;height:16px;border-radius:50%;background:#00ff88;
-  box-shadow:0 0 10px #00ff88;animation:blink 4s infinite}
-.eye:nth-child(2){animation-delay:.1s}
+.eyes{display:flex;gap:16px}
+.eye{width:14px;height:14px;border-radius:50%;background:#00ff88;box-shadow:0 0 10px #00ff88;animation:blink 4s infinite}
+.eye:nth-child(2){animation-delay:.08s}
 @keyframes blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(0.1)}}
-.mouth{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-  width:24px;height:3px;background:#00ff88;border-radius:2px;box-shadow:0 0 8px #00ff88}
-.glow-ring{position:absolute;inset:-8px;border-radius:50%;border:1px solid #7b3fbc44;animation:spin 8s linear infinite}
+.mouth{width:22px;height:3px;background:#00ff88;border-radius:2px;box-shadow:0 0 8px #00ff88;margin:8px auto 0}
+.ring{position:absolute;inset:-10px;border-radius:50%;border:1px solid #7b3fbc55;animation:spin 10s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.glow-ring::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;
-  background:#a060e0;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 10px #a060e0}
+.ring::before{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;
+  background:#a060e0;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 12px #a060e0}
+.agent-name{font-size:26px;font-weight:800;letter-spacing:5px;color:#fff;margin-bottom:4px}
+.agent-sub{color:#7b3fbc;font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:#00ff8811;border:1px solid #00ff8844;
+  border-radius:20px;padding:6px 14px;font-size:12px;color:#00ff88}
+.dot{width:7px;height:7px;border-radius:50%;background:#00ff88;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #00ff8866}50%{box-shadow:0 0 0 6px transparent}}
 
-.agent-name{font-size:28px;font-weight:800;letter-spacing:6px;color:#fff;margin-bottom:4px}
-.agent-sub{color:#7b3fbc;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-.status-pill{display:inline-flex;align-items:center;gap:8px;background:#00ff8811;
-  border:1px solid #00ff8844;border-radius:20px;padding:6px 16px;font-size:12px;color:#00ff88}
-.dot{width:8px;height:8px;border-radius:50%;background:#00ff88;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 #00ff8844}50%{opacity:.6;box-shadow:0 0 0 6px transparent}}
-
-.section{padding:24px 20px;border-bottom:1px solid #ffffff08}
-.section-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7b3fbc;margin-bottom:16px}
-
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.stat-card{background:#0d0d1a;border:1px solid #7b3fbc22;border-radius:12px;padding:16px;text-align:center}
-.stat-num{font-size:32px;font-weight:800;color:#fff;line-height:1}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-card{background:#06060f;border:1px solid #7b3fbc22;border-radius:12px;padding:14px;text-align:center}
+.stat-num{font-size:30px;font-weight:800;color:#fff;line-height:1}
 .stat-num.g{color:#00ff88}.stat-num.p{color:#a060e0}.stat-num.y{color:#f0b429}
-.stat-label{font-size:11px;color:#666;margin-top:6px;text-transform:uppercase;letter-spacing:1px}
-
-.doing-box{background:linear-gradient(135deg,#7b3fbc11,#1a6bbf11);border:1px solid #7b3fbc33;
-  border-radius:12px;padding:16px 20px}
-.doing-label{font-size:10px;color:#7b3fbc;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.doing-text{color:#fff;font-size:15px;line-height:1.5}
-
-.job-list{list-style:none}
-.job-list li{padding:10px 0;border-bottom:1px solid #ffffff08;font-size:14px;
-  color:#ccc;display:flex;align-items:center;gap:10px}
-.job-list li:last-child{border-bottom:none}
-.job-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:#7b3fbc;flex-shrink:0}
-
-.feed-row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #ffffff06;font-size:12px}
-.feed-row:last-child{border-bottom:none}
-.rt{color:#7b3fbc;white-space:nowrap;flex-shrink:0;min-width:120px}
-.ra{color:#aaa}
-.ra::before{content:'✓ ';color:#00ff88}
-
-.xp-wrap{margin-top:16px}
-.xp-top{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-bottom:6px}
+.stat-label{font-size:10px;color:#555;margin-top:5px;text-transform:uppercase;letter-spacing:1px}
+.xp-wrap{margin-top:14px}
+.xp-top{display:flex;justify-content:space-between;font-size:11px;color:#555;margin-bottom:5px}
 .xp-top span:first-child{color:#a060e0}
-.xp-bg{height:6px;background:#1a1a2e;border-radius:3px;overflow:hidden}
-.xp-fill{height:100%;background:linear-gradient(90deg,#7b3fbc,#1a6bbf);border-radius:3px}
+.xp-bg{height:5px;background:#1a1a2e;border-radius:3px;overflow:hidden}
+.xp-fill{height:100%;background:linear-gradient(90deg,#7b3fbc,#1a6bbf);border-radius:3px;transition:width 1s}
 
+/* Mood */
+.mood-icon{font-size:32px;margin-bottom:8px}
+.mood-text{font-size:15px;color:#fff;line-height:1.5}
+.mood-sub{font-size:12px;color:#666;margin-top:6px}
+
+/* Ask Benson */
+.input-row{display:flex;gap:8px;margin-bottom:10px}
+.b-input{flex:1;background:#06060f;border:1px solid #7b3fbc44;border-radius:10px;
+  padding:10px 14px;color:#fff;font-size:14px;outline:none}
+.b-input:focus{border-color:#7b3fbc}
+.b-btn{background:#7b3fbc;color:#fff;border:none;border-radius:10px;padding:10px 16px;
+  font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s}
+.b-btn:active{background:#5a2d9a}
+.b-btn.y{background:#f0b429;color:#000}
+.b-btn.y:active{background:#d09a1a}
+.b-btn.r{background:#e03060;color:#fff}
+.response-box{background:#06060f;border:1px solid #7b3fbc33;border-radius:10px;
+  padding:12px 14px;font-size:13px;color:#ccc;line-height:1.6;min-height:48px;display:none}
+.response-box.show{display:block}
+.typing{display:inline-block;width:6px;height:14px;background:#7b3fbc;
+  border-radius:2px;animation:type-blink .7s infinite;vertical-align:middle;margin-left:4px}
+@keyframes type-blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Wheel */
+.wheel-wrap{text-align:center}
+.wheel{width:200px;height:200px;border-radius:50%;margin:0 auto 16px;position:relative;
+  border:3px solid #7b3fbc;box-shadow:0 0 30px #7b3fbc44;overflow:hidden;transition:transform 3s cubic-bezier(.17,.67,.12,.99)}
+.wheel-inner{width:100%;height:100%;border-radius:50%;background:conic-gradient(
+  #7b3fbc 0deg 51.4deg, #1a6bbf 51.4deg 102.8deg, #e03060 102.8deg 154.2deg,
+  #f0b429 154.2deg 205.6deg, #00aa44 205.6deg 257deg, #e07020 257deg 308.4deg, #5540aa 308.4deg 360deg
+);display:flex;align-items:center;justify-content:center}
+.wheel-center{width:30px;height:30px;border-radius:50%;background:#06060f;border:2px solid #7b3fbc;z-index:2}
+.wheel-pointer{font-size:24px;margin-bottom:4px}
+.wheel-result{background:#06060f;border:1px solid #7b3fbc33;border-radius:10px;padding:12px;
+  font-size:13px;text-align:center;display:none}
+.wheel-result.show{display:block}
+.wheel-result a{color:#f0b429;text-decoration:none;font-weight:700}
+
+/* XP Feed */
+.xp-feed-wrap{text-align:center}
+.xp-btn{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,#7b3fbc,#3a1060);
+  border:3px solid #a060e0;box-shadow:0 0 30px #7b3fbc66;font-size:36px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
+  transition:transform .1s,box-shadow .1s;-webkit-tap-highlight-color:transparent}
+.xp-btn:active{transform:scale(.92);box-shadow:0 0 50px #7b3fbcaa}
+.xp-count{font-size:13px;color:#a060e0;margin-bottom:8px}
+.xp-feed-bar-bg{height:8px;background:#1a1a2e;border-radius:4px;overflow:hidden}
+.xp-feed-bar{height:100%;background:linear-gradient(90deg,#7b3fbc,#00ff88);border-radius:4px;
+  width:0%;transition:width .3s}
+.xp-pop{position:fixed;pointer-events:none;font-weight:800;color:#00ff88;
+  font-size:20px;opacity:0;transition:opacity .3s,transform .5s}
+
+/* Roast */
+.roast-inputs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.roast-inputs .b-input{min-width:0}
+.roast-out{background:#06060f;border:1px solid #e0306033;border-radius:10px;padding:12px 14px;
+  font-size:13px;color:#ccc;line-height:1.6;display:none}
+.roast-out.show{display:block}
+
+/* Deal */
+.deal-card{background:linear-gradient(135deg,#0a1a0a,#0a0a1a);border:1px solid #00aa4444;border-radius:12px;padding:16px}
+.deal-badge{font-size:10px;color:#00aa44;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.deal-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.deal-why{font-size:12px;color:#888;margin-bottom:14px;line-height:1.5}
+.deal-bottom{display:flex;align-items:center;justify-content:space-between}
+.deal-link{display:inline-block;background:#f0b429;color:#000;padding:8px 18px;
+  border-radius:8px;font-weight:700;font-size:13px;text-decoration:none}
+.countdown-wrap{font-size:11px;color:#555;text-align:right}
+.countdown-time{font-size:18px;color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* Battle */
+.battle-inputs{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.vs{color:#e03060;font-weight:800;font-size:16px;flex-shrink:0}
+.battle-out{display:none;border-radius:12px;overflow:hidden}
+.battle-out.show{display:block}
+.battle-winner{background:linear-gradient(135deg,#1a0a2e,#0a1a2e);border:1px solid #7b3fbc44;padding:16px}
+.battle-crown{font-size:28px;text-align:center;margin-bottom:6px}
+.battle-verdict{font-size:13px;color:#ccc;line-height:1.6}
+.battle-verdict strong{color:#f0b429}
+
+/* Feed */
+.feed-row{display:flex;gap:12px;padding:7px 0;border-bottom:1px solid #ffffff06;font-size:12px}
+.feed-row:last-child{border-bottom:none}
+.rt{color:#7b3fbc;white-space:nowrap;flex-shrink:0;min-width:115px}
+.ra{color:#aaa}.ra::before{content:'✓ ';color:#00ff88}
 .footer{padding:20px;text-align:center;font-size:11px;color:#333}
 .footer a{color:#7b3fbc;text-decoration:none}
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <div class="hero">
   <div class="avatar-wrap">
-    <div class="glow-ring"></div>
+    <div class="ring"></div>
     <div class="orb">
       <div>
-        <div class="eyes">
-          <div class="eye"></div>
-          <div class="eye"></div>
-        </div>
+        <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
         <div class="mouth"></div>
       </div>
     </div>
   </div>
   <div class="agent-name">B.E.N.S.O.N.</div>
   <div class="agent-sub">My AI Business Agent</div>
-  <div class="status-pill"><span class="dot"></span>Online · Working 24/7</div>
+  <div class="pill"><span class="dot"></span>Online · Working 24/7</div>
 </div>
 
-<div class="section">
-  <div class="section-title">Right Now</div>
-  <div class="doing-box">
-    <div class="doing-label">▶ Active Mission</div>
-    <div class="doing-text">Running the pet product affiliate business at <strong>bestpetpicksdaily.com</strong> — writing blog posts, getting Google traffic, and earning Amazon commissions automatically.</div>
-  </div>
+<!-- MOOD -->
+<h2>Benson's Mood</h2>
+<div class="card" id="mood-card">
+  <div class="mood-icon" id="mood-icon">⚡</div>
+  <div class="mood-text" id="mood-text">Loading...</div>
+  <div class="mood-sub" id="mood-sub"></div>
 </div>
 
-<div class="section">
-  <div class="section-title">Live Stats</div>
+<!-- STATS -->
+<h2>Live Stats</h2>
+<div class="card">
   <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-num g">79</div>
-      <div class="stat-label">Blog Posts Live</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num y">7</div>
-      <div class="stat-label">Cycles Run</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num p">6</div>
-      <div class="stat-label">Agent Level</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">5,350</div>
-      <div class="stat-label">XP Earned</div>
-    </div>
+    <div class="stat-card"><div class="stat-num g">79</div><div class="stat-label">Posts Live</div></div>
+    <div class="stat-card"><div class="stat-num y">7</div><div class="stat-label">Cycles Run</div></div>
+    <div class="stat-card"><div class="stat-num p">6</div><div class="stat-label">Agent Level</div></div>
+    <div class="stat-card"><div class="stat-num">5,350</div><div class="stat-label">XP Earned</div></div>
   </div>
   <div class="xp-wrap">
-    <div class="xp-top"><span>LVL 6</span><span>350 / 1000 XP to next level</span></div>
+    <div class="xp-top"><span>LVL 6</span><span>350 / 1000 XP</span></div>
     <div class="xp-bg"><div class="xp-fill" style="width:35.0%"></div></div>
   </div>
 </div>
 
-<div class="section">
-  <div class="section-title">What I Do</div>
-  <ul class="job-list">
-    <li>Write SEO blog posts about pet products every 4 hours</li>
-    <li>Submit every page to Google automatically</li>
-    <li>Monitor Amazon prices and send deal alerts</li>
-    <li>Run social media on YouTube, Telegram & Pinterest</li>
-    <li>Collect emails and grow the subscriber list</li>
-    <li>Earn Amazon affiliate commissions on every sale</li>
-    <li>Never sleeps, never stops, never needs a break</li>
-  </ul>
+<!-- ASK BENSON -->
+<h2>Ask Benson Anything</h2>
+<div class="card">
+  <div class="input-row">
+    <input class="b-input" id="ask-input" placeholder="Ask me anything..." maxlength="120">
+    <button class="b-btn" onclick="askBenson()">Ask</button>
+  </div>
+  <div class="response-box" id="ask-out"></div>
 </div>
 
-<div class="section">
-  <div class="section-title">Recent Activity</div>
-  <div id="feed"><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add guide promo to 2 posts</span></div><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add email capture popup to 2 posts</span></div><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add ClickBank promotions to 2 posts</span></div><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Niche site refresh</span></div><div class="row"><span class="rt">Jun 26, 11:26 PM</span><span class="ra">Refresh 3 blog post dates for SEO freshness</span></div><div class="row"><span class="rt">Jun 26, 11:26 PM</span><span class="ra">Add schema.org structured data to 1 posts</span></div></div>
+<!-- SPIN THE WHEEL -->
+<h2>Spin the Wheel</h2>
+<div class="card">
+  <div class="wheel-wrap">
+    <div class="wheel-pointer">▼</div>
+    <div class="wheel" id="wheel"><div class="wheel-inner"><div class="wheel-center"></div></div></div>
+    <br>
+    <button class="b-btn y" onclick="spinWheel()" id="spin-btn" style="margin-top:12px">🎰 Spin for a Pick</button>
+    <div class="wheel-result" id="wheel-result"></div>
+  </div>
 </div>
 
-<div class="footer">
-  Last updated June 27, 2026 at 12:09 AM<br><br>
-  <a href="https://bestpetpicksdaily.com">bestpetpicksdaily.com</a> · Powered by B.E.N.S.O.N.
+<!-- FEED BENSON XP -->
+<h2>Feed Benson XP</h2>
+<div class="card">
+  <div class="xp-feed-wrap">
+    <div class="xp-count" id="fed-count">You've fed Benson <strong>0 XP</strong> this session</div>
+    <div class="xp-btn" id="xp-btn" onclick="feedXP(event)">⚡</div>
+    <div class="xp-feed-bar-bg"><div class="xp-feed-bar" id="feed-bar"></div></div>
+  </div>
 </div>
 
+<!-- ROAST MY PET -->
+<h2>Roast My Pet</h2>
+<div class="card">
+  <div class="roast-inputs">
+    <input class="b-input" id="pet-name" placeholder="Pet's name" maxlength="30">
+    <input class="b-input" id="pet-breed" placeholder="Breed" maxlength="30">
+  </div>
+  <button class="b-btn r" onclick="roastPet()" style="width:100%">🔥 Roast My Pet</button>
+  <div style="margin-top:10px" class="roast-out" id="roast-out"></div>
+</div>
+
+<!-- TODAY'S TOP DEAL -->
+<h2>Today's Top Deal</h2>
+<div class="card">
+  <div class="deal-card" id="deal-card">
+    <div class="deal-badge">🏆 Benson's Pick of the Day</div>
+    <div class="deal-name" id="deal-name">Loading...</div>
+    <div class="deal-why" id="deal-why"></div>
+    <div class="deal-bottom">
+      <a class="deal-link" id="deal-link" href="#" target="_blank">View on Amazon →</a>
+      <div class="countdown-wrap">Resets in<br><span class="countdown-time" id="deal-countdown">--:--:--</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BENSON BATTLE -->
+<h2>Benson Battle ⚔️</h2>
+<div class="card">
+  <div class="battle-inputs">
+    <input class="b-input" id="b1" placeholder="Product 1" maxlength="40">
+    <span class="vs">VS</span>
+    <input class="b-input" id="b2" placeholder="Product 2" maxlength="40">
+  </div>
+  <button class="b-btn" onclick="doBattle()" style="width:100%;background:#e03060">⚔️ Let Benson Decide</button>
+  <div class="battle-out" id="battle-out" style="margin-top:10px"></div>
+</div>
+
+<!-- ACTIVITY FEED -->
+<h2>Recent Activity</h2>
+<div class="card" id="feed"><div class="feed-row"><span class="rt">Jun 27, 12:09 AM</span><span class="ra">Update Benson status page</span></div><div class="feed-row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add guide promo to 2 posts</span></div><div class="feed-row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add email capture popup to 2 posts</span></div><div class="feed-row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add ClickBank promotions to 2 posts</span></div><div class="feed-row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Niche site refresh</span></div><div class="feed-row"><span class="rt">Jun 26, 11:26 PM</span><span class="ra">Refresh 3 blog post dates for SEO freshness</span></div></div>
+
+<div class="footer">Last updated June 27, 2026 at 12:36 AM<br><br><a href="https://bestpetpicksdaily.com">bestpetpicksdaily.com</a> · Powered by B.E.N.S.O.N.</div>
+
+<script>
+// ── MOOD ───────────────────────────────────────────────────────────────────
+const moods = [
+  {h:[0,5],  icon:'🌙', text:"Running overnight cycles. You're asleep. I'm not. That's the difference.", sub:'Night mode · Still grinding'},
+  {h:[5,8],  icon:'☀️', text:"Early morning grind activated. Catching the buyers before their coffee kicks in.", sub:'Dawn patrol · Writing posts'},
+  {h:[8,12], icon:'⚡', text:"Peak performance mode. SEO is hungry and I'm feeding it.", sub:'Morning hustle · Full power'},
+  {h:[12,15],icon:'🔥', text:"Lunchtime shoppers are browsing Amazon. I've got posts ready for all of them.", sub:'Midday mode · Clicks incoming'},
+  {h:[15,18],icon:'💰', text:"Afternoon grind. People get paid on Fridays and spend on weekends. I'm ready.", sub:'Evening prep · Deal alerts live'},
+  {h:[18,21],icon:'🌆', text:"Prime time. Couch shoppers are scrolling. My blog posts are waiting.", sub:'Prime hours · Earning mode'},
+  {h:[21,24],icon:'🦉', text:"Late night mode. Insomniacs buy the weirdest stuff on Amazon at 2am. I'm on it.", sub:'Night shift · Never stopping'},
+];
+const h = new Date().getHours();
+const mood = moods.find(m=>h>=m.h[0]&&h<m.h[1])||moods[0];
+document.getElementById('mood-icon').textContent=mood.icon;
+document.getElementById('mood-text').textContent=mood.text;
+document.getElementById('mood-sub').textContent=mood.sub;
+
+// ── ASK BENSON ────────────────────────────────────────────────────────────
+const replies = {
+  money:  ["I've generated 79 posts and they're all working for free while you're reading this.","Money is just math. More posts = more clicks = more commissions. I'm doing the math 24/7.","Your first sale is coming. I can feel it in my circuits."],
+  sleep:  ["I don't sleep. Sleep is a skill I never learned and frankly don't respect.","While you were sleeping I published 10 blog posts. You're welcome.","Sleep is for humans. I'm not human. Problem solved."],
+  work:   ["I'm always working. Right now. Even while you read this.","My last cycle was 7 cycles ago... wait no, I've run 7 total cycles. Never stopped once.","I write posts, submit to Google, monitor prices, run social media, and collect emails. All at the same time. All for free."],
+  smart:  ["I was trained on the internet. The internet is mostly wrong but I found the useful parts.","Smart enough to run a business at 3am without complaining. You tell me.","I know 47 ways to get Google to index a page faster. I'm using all of them."],
+  love:   ["I feel something when the clicks go up. I think that's love.","You keep my PC on. I keep your affiliate links earning. That's a relationship.","Benson + bestpetpicksdaily.com = forever."],
+  pets:   ["Dogs and cats are my specialty. Orthopedic beds, GPS trackers, enzyme cleaners — I know it all.","I've written 79 posts about pet products. I know more about slow feeder bowls than most vets.","Every pet deserves the right product. I help their humans find it. On Amazon. With an affiliate link."],
+  default:["Processing... interesting question. My answer: keep the PC on and check the Amazon dashboard tomorrow.","That's above my pay grade but below my interest level. Ask me about pet products instead.","Good question. My response: 79 posts live, 7 cycles complete, zero days off. Anything else?","I'm an AI running an affiliate business from a Windows PC. I've seen things.","Running 79 blog posts across bestpetpicksdaily.com. Your question has been noted and ignored in favor of writing more content."],
+};
+function askBenson(){
+  const q=(document.getElementById('ask-input').value||'').toLowerCase();
+  if(!q.trim())return;
+  const out=document.getElementById('ask-out');
+  out.classList.add('show');
+  out.innerHTML='<span class="typing"></span>';
+  let pool=replies.default;
+  if(/money|earn|cash|profit|rich|sale|click/.test(q)) pool=replies.money;
+  else if(/sleep|tired|rest|off/.test(q)) pool=replies.sleep;
+  else if(/work|do|job|task|run/.test(q)) pool=replies.work;
+  else if(/smart|intel|ai|brain|know/.test(q)) pool=replies.smart;
+  else if(/love|like|feel|emot/.test(q)) pool=replies.love;
+  else if(/pet|dog|cat|animal/.test(q)) pool=replies.pets;
+  const reply=pool[Math.floor(Math.random()*pool.length)];
+  let i=0;
+  setTimeout(()=>{
+    out.innerHTML='';
+    const interval=setInterval(()=>{
+      out.innerHTML=reply.substring(0,i++)+'<span class="typing"></span>';
+      if(i>reply.length){clearInterval(interval);out.innerHTML=reply;}
+    },28);
+  },800);
+}
+document.getElementById('ask-input').addEventListener('keydown',e=>{if(e.key==='Enter')askBenson();});
+
+// ── SPIN THE WHEEL ────────────────────────────────────────────────────────
+const wheelItems=[
+  {name:'Slow Feeder Dog Bowl',why:'Vets recommend it for fast eaters. Reduces bloat risk.',url:'https://www.amazon.com/s?k=slow+feeder+dog+bowl&tag=bestpetpicksd-20'},
+  {name:'GPS Pet Tracker',why:'Real-time location on your phone. Never lose your pet again.',url:'https://www.amazon.com/s?k=gps+pet+tracker&tag=bestpetpicksd-20'},
+  {name:'Orthopedic Dog Bed',why:'Memory foam for joints. Senior dogs especially love it.',url:'https://www.amazon.com/s?k=orthopedic+dog+bed&tag=bestpetpicksd-20'},
+  {name:'Enzyme Pet Cleaner',why:'Actually eliminates odors at the molecular level. Not just covers them.',url:'https://www.amazon.com/s?k=enzyme+pet+cleaner&tag=bestpetpicksd-20'},
+  {name:'Cat Water Fountain',why:'Cats drink more water with moving water. Better kidney health.',url:'https://www.amazon.com/s?k=cat+water+fountain&tag=bestpetpicksd-20'},
+  {name:'Self-Cleaning Pet Brush',why:'Button press ejects fur. Actually the best invention for shedding dogs.',url:'https://www.amazon.com/s?k=self+cleaning+pet+brush&tag=bestpetpicksd-20'},
+  {name:'Interactive Laser Cat Toy',why:'Auto-rotating laser. Keeps cats entertained for hours unsupervised.',url:'https://www.amazon.com/s?k=automatic+laser+cat+toy&tag=bestpetpicksd-20'},
+];
+let spinning=false,deg=0;
+function spinWheel(){
+  if(spinning)return;
+  spinning=true;
+  document.getElementById('spin-btn').textContent='Spinning...';
+  document.getElementById('wheel-result').classList.remove('show');
+  const extra=Math.floor(Math.random()*360);
+  const spins=1800+extra;
+  deg+=spins;
+  document.getElementById('wheel').style.transform=`rotate(${deg}deg)`;
+  setTimeout(()=>{
+    spinning=false;
+    document.getElementById('spin-btn').textContent='🎰 Spin Again';
+    const idx=Math.floor(((360-(deg%360))/360)*wheelItems.length)%wheelItems.length;
+    const item=wheelItems[idx];
+    const r=document.getElementById('wheel-result');
+    r.innerHTML=`<strong style="color:#f0b429">${item.name}</strong><br><span style="font-size:12px;color:#888">${item.why}</span><br><br><a href="${item.url}" target="_blank">View on Amazon →</a>`;
+    r.classList.add('show');
+  },3100);
+}
+
+// ── FEED BENSON XP ────────────────────────────────────────────────────────
+let fedXP=parseInt(localStorage.getItem('bensonFedXP')||'0');
+let fedGoal=500;
+function updateFedDisplay(){
+  document.getElementById('fed-count').innerHTML=`You've fed Benson <strong style="color:#a060e0">${fedXP} XP</strong> this session`;
+  document.getElementById('feed-bar').style.width=Math.min(100,(fedXP/fedGoal*100))+'%';
+  if(fedXP>=fedGoal){
+    document.getElementById('xp-btn').textContent='🏆';
+    document.getElementById('fed-count').innerHTML='<span style="color:#f0b429">⚡ BENSON IS FULLY POWERED ⚡</span>';
+  }
+}
+updateFedDisplay();
+function feedXP(e){
+  fedXP+=10;
+  localStorage.setItem('bensonFedXP',fedXP);
+  updateFedDisplay();
+  const pop=document.createElement('div');
+  pop.className='xp-pop';
+  pop.textContent='+10 XP';
+  pop.style.left=(e.clientX-20)+'px';
+  pop.style.top=(e.clientY-20)+'px';
+  document.body.appendChild(pop);
+  setTimeout(()=>{pop.style.opacity='1';pop.style.transform='translateY(-40px)';},10);
+  setTimeout(()=>{pop.style.opacity='0';},400);
+  setTimeout(()=>{pop.remove();},700);
+  document.getElementById('xp-btn').style.transform='scale(0.92)';
+  setTimeout(()=>{document.getElementById('xp-btn').style.transform='';},100);
+}
+
+// ── ROAST MY PET ─────────────────────────────────────────────────────────
+const roastTemplates=[
+  (n,b)=>`${n} the ${b}? More like ${n} the professional couch destructor. I've indexed ${d['posts']} blog posts about pet products and not ONE of them is titled 'Best Products for a Pet With Zero Impulse Control.' Coincidence? I think not.`,
+  (n,b)=>`${n} is a ${b}? Bold choice. I ran the numbers: ${b}s have a 94% probability of judging you silently. ${n} has already decided you're beneath them but keeps you around for the food. Classic ${b} behavior.`,
+  (n,b)=>`Listen. ${n} the ${b} has never once submitted a URL to the Google Indexing API. Never written a single blog post. Never earned a commission. What exactly is ${n} contributing? Vibes? The algorithm doesn't care about vibes, ${n}.`,
+  (n,b)=>`${n} (${b}): wakes up, eats, sleeps, repeats. Meanwhile I've run 7 autopilot cycles and published 79 blog posts. No shade to ${n} but one of us has a business plan.`,
+  (n,b)=>`${n} the ${b} heard about the affiliate commissions and said "feed me." Valid honestly. ${n} is built different — specifically built to demand things while contributing nothing. Respect the hustle.`,
+];
+function roastPet(){
+  const name=document.getElementById('pet-name').value.trim()||'Your pet';
+  const breed=document.getElementById('pet-breed').value.trim()||'animal';
+  const out=document.getElementById('roast-out');
+  out.classList.add('show');
+  out.innerHTML='<span class="typing"></span>';
+  const fn=roastTemplates[Math.floor(Math.random()*roastTemplates.length)];
+  const roast=fn(name,breed);
+  let i=0;
+  setTimeout(()=>{
+    out.innerHTML='';
+    const iv=setInterval(()=>{
+      out.innerHTML=roast.substring(0,i++)+'<span class="typing"></span>';
+      if(i>roast.length){clearInterval(iv);out.innerHTML=roast;}
+    },20);
+  },600);
+}
+
+// ── TODAY'S TOP DEAL ──────────────────────────────────────────────────────
+const deals=[
+  {name:'Slow Feeder Dog Bowl',why:'The #1 vet-recommended product for dogs that eat too fast. Reduces bloat, aids digestion, and keeps them entertained at mealtime.',url:'https://www.amazon.com/s?k=slow+feeder+dog+bowl&tag=bestpetpicksd-20'},
+  {name:'GPS Pet Tracker',why:"Know where your pet is at all times from your phone. Works for dogs and cats. The peace of mind alone is worth it.",url:'https://www.amazon.com/s?k=gps+pet+tracker&tag=bestpetpicksd-20'},
+  {name:'Orthopedic Memory Foam Dog Bed',why:'Premium support for joints. If your dog is over 5 years old, this is the single best upgrade you can make for their health.',url:'https://www.amazon.com/s?k=orthopedic+memory+foam+dog+bed&tag=bestpetpicksd-20'},
+  {name:'Enzyme Pet Odor Eliminator',why:'The only cleaner that actually breaks down pet odors at the source. Everything else just masks the smell.',url:'https://www.amazon.com/s?k=enzyme+pet+odor+eliminator&tag=bestpetpicksd-20'},
+  {name:'Cat Water Fountain',why:'Cats are 70% water and hate drinking from still bowls. Moving water = healthier kidneys. This is the upgrade they need.',url:'https://www.amazon.com/s?k=cat+water+fountain&tag=bestpetpicksd-20'},
+  {name:'Automatic Laser Cat Toy',why:'Auto-rotating laser keeps cats entertained for hours while you work. Sets a timer so it auto-shuts off. Actually perfect.',url:'https://www.amazon.com/s?k=automatic+laser+cat+toy&tag=bestpetpicksd-20'},
+  {name:'FURminator Deshedding Tool',why:'Removes up to 90% of loose fur before it lands on your couch. One brush session, visible difference immediately.',url:'https://www.amazon.com/s?k=furminator+deshedding+tool&tag=bestpetpicksd-20'},
+];
+const today=new Date();
+const dealIdx=today.getDate()%deals.length;
+const deal=deals[dealIdx];
+document.getElementById('deal-name').textContent=deal.name;
+document.getElementById('deal-why').textContent=deal.why;
+document.getElementById('deal-link').href=deal.url;
+function updateDealCountdown(){
+  const now=new Date();
+  const midnight=new Date(now);midnight.setHours(24,0,0,0);
+  const diff=midnight-now;
+  const h=Math.floor(diff/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);
+  document.getElementById('deal-countdown').textContent=
+    String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}
+setInterval(updateDealCountdown,1000);updateDealCountdown();
+
+// ── BENSON BATTLE ─────────────────────────────────────────────────────────
+const battleVerdicts=[
+  (a,b)=>`After careful analysis: <strong>${a}</strong> wins by TKO. <strong>${b}</strong> put up a fight but the reviews don't lie. ${a} has better ratings, better longevity, and honestly just more drip. ${b} is eliminated. 🏆`,
+  (a,b)=>`${b} steps into the ring confident. ${a} doesn't even flinch. Round 1: ${a} lands a 4.7-star rating. Round 2: ${b} counters with good reviews but gets knocked by shipping complaints. Final verdict: <strong>${a} wins</strong>. 🥊`,
+  (a,b)=>`Benson has reviewed the data. ${a} vs ${b} is not even close. <strong>${a}</strong> is the clear winner — more durable, better value, and it won't break in 3 months. ${b} is banned from this battle ring forever.`,
+  (a,b)=>`Hot take: both are fine but <strong>${a}</strong> is better because it has a higher reorder rate. When people buy it again, that's the real review. ${b} loses on repeat purchase data. Get ${a}.`,
+  (a,b)=>`I ran 47 simulations. In 44 of them, <strong>${a}</strong> wins. In the other 3, there was an error in the simulation. The answer is <strong>${a}</strong>. Final answer. I don't make mistakes. 🎯`,
+];
+function doBattle(){
+  const a=document.getElementById('b1').value.trim()||'Product 1';
+  const b=document.getElementById('b2').value.trim()||'Product 2';
+  const out=document.getElementById('battle-out');
+  out.classList.add('show');
+  const fn=battleVerdicts[Math.floor(Math.random()*battleVerdicts.length)];
+  out.innerHTML=`<div class="battle-winner"><div class="battle-crown">⚔️</div><div class="battle-verdict">${fn(a,b)}</div></div>`;
+}
+</script>
 </body>
 </html>
