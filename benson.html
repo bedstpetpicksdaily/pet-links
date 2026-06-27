@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>B.E.N.S.O.N. — My AI Business Agent</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#06060f;color:#e0e0f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+
+.hero{background:linear-gradient(160deg,#0d0d2e,#1a0a2e,#0a0a1a);padding:40px 24px 32px;text-align:center}
+
+.avatar-wrap{position:relative;display:inline-block;margin-bottom:24px}
+.orb{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a060e0,#5020a0,#1a0a2e);
+  border:2px solid #7b3fbc;box-shadow:0 0 40px #7b3fbc88,0 0 80px #7b3fbc44;
+  display:flex;align-items:center;justify-content:center;position:relative;animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.eyes{display:flex;gap:18px;align-items:center}
+.eye{width:16px;height:16px;border-radius:50%;background:#00ff88;
+  box-shadow:0 0 10px #00ff88;animation:blink 4s infinite}
+.eye:nth-child(2){animation-delay:.1s}
+@keyframes blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(0.1)}}
+.mouth{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  width:24px;height:3px;background:#00ff88;border-radius:2px;box-shadow:0 0 8px #00ff88}
+.glow-ring{position:absolute;inset:-8px;border-radius:50%;border:1px solid #7b3fbc44;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow-ring::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;
+  background:#a060e0;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 10px #a060e0}
+
+.agent-name{font-size:28px;font-weight:800;letter-spacing:6px;color:#fff;margin-bottom:4px}
+.agent-sub{color:#7b3fbc;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.status-pill{display:inline-flex;align-items:center;gap:8px;background:#00ff8811;
+  border:1px solid #00ff8844;border-radius:20px;padding:6px 16px;font-size:12px;color:#00ff88}
+.dot{width:8px;height:8px;border-radius:50%;background:#00ff88;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 #00ff8844}50%{opacity:.6;box-shadow:0 0 0 6px transparent}}
+
+.section{padding:24px 20px;border-bottom:1px solid #ffffff08}
+.section-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7b3fbc;margin-bottom:16px}
+
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-card{background:#0d0d1a;border:1px solid #7b3fbc22;border-radius:12px;padding:16px;text-align:center}
+.stat-num{font-size:32px;font-weight:800;color:#fff;line-height:1}
+.stat-num.g{color:#00ff88}.stat-num.p{color:#a060e0}.stat-num.y{color:#f0b429}
+.stat-label{font-size:11px;color:#666;margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+
+.doing-box{background:linear-gradient(135deg,#7b3fbc11,#1a6bbf11);border:1px solid #7b3fbc33;
+  border-radius:12px;padding:16px 20px}
+.doing-label{font-size:10px;color:#7b3fbc;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.doing-text{color:#fff;font-size:15px;line-height:1.5}
+
+.job-list{list-style:none}
+.job-list li{padding:10px 0;border-bottom:1px solid #ffffff08;font-size:14px;
+  color:#ccc;display:flex;align-items:center;gap:10px}
+.job-list li:last-child{border-bottom:none}
+.job-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:#7b3fbc;flex-shrink:0}
+
+.feed-row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #ffffff06;font-size:12px}
+.feed-row:last-child{border-bottom:none}
+.rt{color:#7b3fbc;white-space:nowrap;flex-shrink:0;min-width:120px}
+.ra{color:#aaa}
+.ra::before{content:'✓ ';color:#00ff88}
+
+.xp-wrap{margin-top:16px}
+.xp-top{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-bottom:6px}
+.xp-top span:first-child{color:#a060e0}
+.xp-bg{height:6px;background:#1a1a2e;border-radius:3px;overflow:hidden}
+.xp-fill{height:100%;background:linear-gradient(90deg,#7b3fbc,#1a6bbf);border-radius:3px}
+
+.footer{padding:20px;text-align:center;font-size:11px;color:#333}
+.footer a{color:#7b3fbc;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="avatar-wrap">
+    <div class="glow-ring"></div>
+    <div class="orb">
+      <div>
+        <div class="eyes">
+          <div class="eye"></div>
+          <div class="eye"></div>
+        </div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+  </div>
+  <div class="agent-name">B.E.N.S.O.N.</div>
+  <div class="agent-sub">My AI Business Agent</div>
+  <div class="status-pill"><span class="dot"></span>Online · Working 24/7</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Right Now</div>
+  <div class="doing-box">
+    <div class="doing-label">▶ Active Mission</div>
+    <div class="doing-text">Running the pet product affiliate business at <strong>bestpetpicksdaily.com</strong> — writing blog posts, getting Google traffic, and earning Amazon commissions automatically.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Live Stats</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num g">79</div>
+      <div class="stat-label">Blog Posts Live</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num y">7</div>
+      <div class="stat-label">Cycles Run</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num p">6</div>
+      <div class="stat-label">Agent Level</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5,350</div>
+      <div class="stat-label">XP Earned</div>
+    </div>
+  </div>
+  <div class="xp-wrap">
+    <div class="xp-top"><span>LVL 6</span><span>350 / 1000 XP to next level</span></div>
+    <div class="xp-bg"><div class="xp-fill" style="width:35.0%"></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">What I Do</div>
+  <ul class="job-list">
+    <li>Write SEO blog posts about pet products every 4 hours</li>
+    <li>Submit every page to Google automatically</li>
+    <li>Monitor Amazon prices and send deal alerts</li>
+    <li>Run social media on YouTube, Telegram & Pinterest</li>
+    <li>Collect emails and grow the subscriber list</li>
+    <li>Earn Amazon affiliate commissions on every sale</li>
+    <li>Never sleeps, never stops, never needs a break</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">Recent Activity</div>
+  <div id="feed"><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add guide promo to 2 posts</span></div><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add email capture popup to 2 posts</span></div><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Add ClickBank promotions to 2 posts</span></div><div class="row"><span class="rt">Jun 26, 11:27 PM</span><span class="ra">Niche site refresh</span></div><div class="row"><span class="rt">Jun 26, 11:26 PM</span><span class="ra">Refresh 3 blog post dates for SEO freshness</span></div><div class="row"><span class="rt">Jun 26, 11:26 PM</span><span class="ra">Add schema.org structured data to 1 posts</span></div></div>
+</div>
+
+<div class="footer">
+  Last updated June 27, 2026 at 12:09 AM<br><br>
+  <a href="https://bestpetpicksdaily.com">bestpetpicksdaily.com</a> · Powered by B.E.N.S.O.N.
+</div>
+
+</body>
+</html>
