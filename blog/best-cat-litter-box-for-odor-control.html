@@ -69,5 +69,34 @@ p{margin:.8em 0}ul{padding-left:1.4em}li{margin:.4em 0}
 <p><strong>Why it's competitive:</strong> Modern high-sided open boxes use antim
 <p style="font-size:.78em;color:#aaa;margin-top:2em">As an Amazon Associate I earn from qualifying purchases.</p>
 <a class="back" href="https://bestpetpicksdaily.com/blog/">&larr; Back to All Reviews</a>
+<!-- email-popup -->
+<div id="benson-popup" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;
+  background:#fff;border-radius:16px;padding:20px 22px;max-width:320px;width:90%;
+  box-shadow:0 8px 40px rgba(0,0,0,.18);border:1px solid #eee">
+  <button onclick="document.getElementById('benson-popup').style.display='none'"
+    style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:1.2em;cursor:pointer;color:#aaa">&times;</button>
+  <p style="margin:0 0 4px;font-size:.8em;color:#888;text-transform:uppercase;letter-spacing:1px">Free Weekly Deals</p>
+  <h3 style="margin:0 0 10px;font-size:1em;color:#111">Get the best pet deals straight to your inbox</h3>
+  <form action="https://github.us22.list-manage.com/subscribe/post?u=265f3a9f135d549492bf9a270&id=b20f19d114&f_id=00bbc2e1f0" method="post" target="_blank" style="display:flex;gap:8px;flex-wrap:wrap">
+<input type="email" name="EMAIL" placeholder="Your email address" required
+  style="flex:1;min-width:180px;padding:10px 14px;border:none;border-radius:8px;font-size:.9em">
+<button type="submit"
+  style="background:#ff9900;color:#000;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9em">
+  Get Deals
+</button>
+</form>
+  <p style="margin:8px 0 0;font-size:.72em;color:#bbb">No spam. Unsubscribe anytime.</p>
+</div>
+<script>
+(function(){
+  var shown = sessionStorage.getItem('benson_popup');
+  if (!shown) {
+    setTimeout(function() {
+      document.getElementById('benson-popup').style.display = 'block';
+      sessionStorage.setItem('benson_popup', '1');
+    }, 25000);
+  }
+})();
+</script>
 </body>
 </html>
