@@ -57,7 +57,7 @@ li{margin:.4em 0;font-size:.92em}
 <a href="https://bestpetpicksdaily.com/" style="color:#e0e0e0;text-decoration:none;font-weight:800;font-size:.95em;letter-spacing:-.3px;white-space:nowrap">Best Pet Picks Daily</a>
 <a href="https://bestpetpicksdaily.com/blog/" style="color:#aaa;text-decoration:none;font-size:.88em;white-space:nowrap">All Reviews</a>
 <div style="position:relative">
-<a href="https://bestpetpicksdaily.com/blog/" style="color:#aaa;text-decoration:none;font-size:.88em;white-space:nowrap">Categories &#9662;</a>
+<a id="benson-cat-btn" href="#" style="color:#aaa;text-decoration:none;font-size:.88em;white-space:nowrap">Categories &#9662;</a>
 
 <div id="benson-drop" style="display:none;position:absolute;top:100%;left:0;background:#111827;border:1px solid #222;border-radius:8px;padding:10px 14px;min-width:160px;z-index:200;flex-direction:column;gap:8px">
 <a href="https://bestpetpicksdaily.com/blog/dog/" style="color:#bbb;text-decoration:none;font-size:.82em;white-space:nowrap">Dog</a><a href="https://bestpetpicksdaily.com/blog/cat/" style="color:#bbb;text-decoration:none;font-size:.82em;white-space:nowrap">Cat</a><a href="https://bestpetpicksdaily.com/blog/puppy/" style="color:#bbb;text-decoration:none;font-size:.82em;white-space:nowrap">Puppy</a><a href="https://bestpetpicksdaily.com/blog/kitten/" style="color:#bbb;text-decoration:none;font-size:.82em;white-space:nowrap">Kitten</a><a href="https://bestpetpicksdaily.com/blog/grooming/" style="color:#bbb;text-decoration:none;font-size:.82em;white-space:nowrap">Grooming</a>
@@ -68,7 +68,18 @@ li{margin:.4em 0;font-size:.92em}
 <a href="https://bestpetpicksdaily.com/media-kit/" style="color:#c084fc;text-decoration:none;font-size:.88em;font-weight:700;white-space:nowrap">Partner With Us</a>
 <span style="flex:1"></span>
 <a href="https://bestpetpicksdaily.com/" style="background:linear-gradient(135deg,#7b3fbc,#1a6bbf);color:#fff;padding:5px 13px;border-radius:7px;text-decoration:none;font-size:.8em;font-weight:700;white-space:nowrap">Top Picks</a>
-</nav>
+</nav><script>
+(function(){
+  var btn=document.getElementById('benson-cat-btn');
+  var drop=document.getElementById('benson-drop');
+  if(!btn||!drop)return;
+  btn.addEventListener('click',function(e){
+    e.preventDefault();e.stopPropagation();
+    drop.style.display=drop.style.display==='flex'?'none':'flex';
+  });
+  document.addEventListener('click',function(){drop.style.display='none';});
+})();
+</script>
 
 <a class="back" href="https://bestpetpicksdaily.com/blog/">&larr; All Reviews</a>
 <h1>Best Raw Dog Food for Summer 2026: Zeal's Top Picks for Active Dogs <span class="brand-badge">Zeal Pet Food</span></h1>
