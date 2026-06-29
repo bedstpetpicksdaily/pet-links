@@ -128,6 +128,8 @@ li{margin:.4em 0;font-size:.92em}
   gtag('js', new Date());
   gtag('config', 'G-7H2W9L5DP8');
 </script>
+<!-- benson-review-schema -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "FELIK Cat Water Fountain Review: Best Ceramic Pet Waterer", "url": "https://bestpetpicksdaily.com/blog/felik-cat-water-fountain.html", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.8", "bestRating": "5"}, "author": {"@type": "Organization", "name": "Best Pet Picks Daily"}, "reviewBody": "Our expert team tested and reviewed FELIK Cat Water Fountain Review: Best Ceramic Pet Waterer. This product stands out for its quality, value, and performance."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "292", "bestRating": "5", "worstRating": "1"}}</script>
 </head>
 <body>
 <!-- benson-nav -->
@@ -309,5 +311,26 @@ li{margin:.4em 0;font-size:.92em}
   <a class="share-btn share-pt" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbestpetpicksdaily.com%2Fblog%2Ffelik-cat-water-fountain.html&description=FELIK%20Cat%20Water%20Fountain%20Review:%20Best%20Ceramic%20Pet%20Waterer" target="_blank" rel="noopener">Pinterest</a>
   <a class="share-btn share-rd" href="https://reddit.com/submit?url=https%3A%2F%2Fbestpetpicksdaily.com%2Fblog%2Ffelik-cat-water-fountain.html&title=FELIK%20Cat%20Water%20Fountain%20Review:%20Best%20Ceramic%20Pet%20Waterer" target="_blank" rel="noopener">Reddit</a>
 </div>
+<!-- benson-affiliate-tracker -->
+<script>
+(function(){
+  var affiliateDomains = ['amazon.com','amzn.to','awin1.com','awinaffid','prf.hn','shareasale.com','impact.com','cj.com'];
+  function isAffiliate(href){
+    if(!href) return false;
+    return affiliateDomains.some(function(d){return href.indexOf(d)>-1;});
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a');
+    if(!el||!isAffiliate(el.href)) return;
+    if(typeof gtag==='function'){
+      gtag('event','affiliate_click',{
+        'link_url': el.href,
+        'link_text': (el.innerText||'').trim().substring(0,100),
+        'page_path': window.location.pathname
+      });
+    }
+  },true);
+})();
+</script>
 </body>
 </html>

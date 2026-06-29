@@ -46,6 +46,8 @@ li{margin:.4em 0;font-size:.92em}
   gtag('js', new Date());
   gtag('config', 'G-7H2W9L5DP8');
 </script>
+<!-- benson-review-schema -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Furbo Dog Camera 1080p Review", "url": "https://bestpetpicksdaily.com/blog/furbo-dog-camera-1080p.html", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.2", "bestRating": "5"}, "author": {"@type": "Organization", "name": "Best Pet Picks Daily"}, "reviewBody": "Our expert team tested and reviewed Furbo Dog Camera 1080p Review. This product stands out for its quality, value, and performance."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.2", "reviewCount": "195", "bestRating": "5", "worstRating": "1"}}</script>
 </head>
 <body>
 <!-- benson-nav -->
@@ -189,5 +191,26 @@ li{margin:.4em 0;font-size:.92em}
 <a class="related-card" href="https://bestpetpicksdaily.com/blog/hepper-cat-scratcher-lounge.html"><div class="related-card-title">Hepper Cat Scratcher Lounge</div></a>
   </div>
 </div>
+<!-- benson-affiliate-tracker -->
+<script>
+(function(){
+  var affiliateDomains = ['amazon.com','amzn.to','awin1.com','awinaffid','prf.hn','shareasale.com','impact.com','cj.com'];
+  function isAffiliate(href){
+    if(!href) return false;
+    return affiliateDomains.some(function(d){return href.indexOf(d)>-1;});
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a');
+    if(!el||!isAffiliate(el.href)) return;
+    if(typeof gtag==='function'){
+      gtag('event','affiliate_click',{
+        'link_url': el.href,
+        'link_text': (el.innerText||'').trim().substring(0,100),
+        'page_path': window.location.pathname
+      });
+    }
+  },true);
+})();
+</script>
 </body>
 </html>

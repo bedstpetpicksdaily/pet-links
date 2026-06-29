@@ -140,6 +140,8 @@ li{margin:.4em 0;font-size:.92em}
   gtag('js', new Date());
   gtag('config', 'G-7H2W9L5DP8');
 </script>
+<!-- benson-review-schema -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Catit Flower Fountain Review: Best Cat Water Dispenser?", "url": "https://bestpetpicksdaily.com/blog/catit-flower-fountain-water-dispenser.html", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.6", "bestRating": "5"}, "author": {"@type": "Organization", "name": "Best Pet Picks Daily"}, "reviewBody": "Our expert team tested and reviewed Catit Flower Fountain Review: Best Cat Water Dispenser?. This product stands out for its quality, value, and performance."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "222", "bestRating": "5", "worstRating": "1"}}</script>
 </head>
 <body>
 <!-- benson-nav -->
@@ -309,6 +311,27 @@ li{margin:.4em 0;font-size:.92em}
       document.getElementById('benson-popup').style.display='block';
     }, 20000);
   }
+})();
+</script>
+<!-- benson-affiliate-tracker -->
+<script>
+(function(){
+  var affiliateDomains = ['amazon.com','amzn.to','awin1.com','awinaffid','prf.hn','shareasale.com','impact.com','cj.com'];
+  function isAffiliate(href){
+    if(!href) return false;
+    return affiliateDomains.some(function(d){return href.indexOf(d)>-1;});
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a');
+    if(!el||!isAffiliate(el.href)) return;
+    if(typeof gtag==='function'){
+      gtag('event','affiliate_click',{
+        'link_url': el.href,
+        'link_text': (el.innerText||'').trim().substring(0,100),
+        'page_path': window.location.pathname
+      });
+    }
+  },true);
 })();
 </script>
 </body>

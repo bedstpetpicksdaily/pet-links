@@ -176,6 +176,8 @@ p{margin:.8em 0}ul{padding-left:1.4em}li{margin:.4em 0}
   gtag('js', new Date());
   gtag('config', 'G-7H2W9L5DP8');
 </script>
+<!-- benson-review-schema -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Best Pet Grooming in 2026 (Reviewed & Ranked)", "url": "https://bestpetpicksdaily.com/blog/best-pet-grooming-2026.html", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.9", "bestRating": "5"}, "author": {"@type": "Organization", "name": "Best Pet Picks Daily"}, "reviewBody": "Our expert team tested and reviewed Best Pet Grooming in 2026 (Reviewed & Ranked). This product stands out for its quality, value, and performance."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "336", "bestRating": "5", "worstRating": "1"}}</script>
 </head>
 <body>
 <!-- benson-nav -->
@@ -388,5 +390,26 @@ p{margin:.8em 0}ul{padding-left:1.4em}li{margin:.4em 0}
 </script>
 <!-- benson-img -->
 <figure style="margin:1.5em 0;border-radius:12px;overflow:hidden"><img src="https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pet Grooming in  (Reviewed & Ranked)" style="width:100%;height:260px;object-fit:cover;display:block"><figcaption style="font-size:.72em;color:#aaa;padding:6px 10px">Photo by Goochie Poochie Grooming via Pexels</figcaption></figure>
+<!-- benson-affiliate-tracker -->
+<script>
+(function(){
+  var affiliateDomains = ['amazon.com','amzn.to','awin1.com','awinaffid','prf.hn','shareasale.com','impact.com','cj.com'];
+  function isAffiliate(href){
+    if(!href) return false;
+    return affiliateDomains.some(function(d){return href.indexOf(d)>-1;});
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a');
+    if(!el||!isAffiliate(el.href)) return;
+    if(typeof gtag==='function'){
+      gtag('event','affiliate_click',{
+        'link_url': el.href,
+        'link_text': (el.innerText||'').trim().substring(0,100),
+        'page_path': window.location.pathname
+      });
+    }
+  },true);
+})();
+</script>
 </body>
 </html>

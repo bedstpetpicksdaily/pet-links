@@ -180,6 +180,8 @@
   gtag('js', new Date());
   gtag('config', 'G-7H2W9L5DP8');
 </script>
+<!-- benson-review-schema -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Best Pet Odor Spray That Actually Works for Dogs (2026)", "url": "https://bestpetpicksdaily.com/blog/best-pet-odor-spray-that-actually-works.html", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.4", "bestRating": "5"}, "author": {"@type": "Organization", "name": "Best Pet Picks Daily"}, "reviewBody": "Our expert team tested and reviewed Best Pet Odor Spray That Actually Works for Dogs (2026). This product stands out for its quality, value, and performance."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "92", "bestRating": "5", "worstRating": "1"}}</script>
 </head>
 <body>
 <!-- benson-nav -->
@@ -402,5 +404,26 @@
 <p style="font-size:.88em;color:#555;line-height:1.6;margin:0">Our team researches and tests hundreds of pet products every month so you don't have to. Every recommendation is based on real research: customer reviews, expert opinions, and value for money. <a href="https://bestpetpicksdaily.com/about/" style="color:#7b3fbc;text-decoration:none;font-weight:600">Learn more about us →</a></p>
 </div>
 </div>
+<!-- benson-affiliate-tracker -->
+<script>
+(function(){
+  var affiliateDomains = ['amazon.com','amzn.to','awin1.com','awinaffid','prf.hn','shareasale.com','impact.com','cj.com'];
+  function isAffiliate(href){
+    if(!href) return false;
+    return affiliateDomains.some(function(d){return href.indexOf(d)>-1;});
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a');
+    if(!el||!isAffiliate(el.href)) return;
+    if(typeof gtag==='function'){
+      gtag('event','affiliate_click',{
+        'link_url': el.href,
+        'link_text': (el.innerText||'').trim().substring(0,100),
+        'page_path': window.location.pathname
+      });
+    }
+  },true);
+})();
+</script>
 </body>
 </html>

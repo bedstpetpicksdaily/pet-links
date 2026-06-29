@@ -331,5 +331,26 @@ p{margin:.8em 0}ul{padding-left:1.4em}li{margin:.4em 0}
   <a class="share-btn share-pt" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbestpetpicksdaily.com%2Fblog%2Fbest-pet-insurance-companies-of-2026-comprehensive-coverage-for-your-furry-frien.html&description=Best%20Pet%20Insurance%20Companies%20of%202026:%20Comprehensive%20Coverage%20for%20Your%20Furry%20Friends​%20-%20WSJ%20—%20Best%20Pet%20Picks%20Daily" target="_blank" rel="noopener">Pinterest</a>
   <a class="share-btn share-rd" href="https://reddit.com/submit?url=https%3A%2F%2Fbestpetpicksdaily.com%2Fblog%2Fbest-pet-insurance-companies-of-2026-comprehensive-coverage-for-your-furry-frien.html&title=Best%20Pet%20Insurance%20Companies%20of%202026:%20Comprehensive%20Coverage%20for%20Your%20Furry%20Friends​%20-%20WSJ%20—%20Best%20Pet%20Picks%20Daily" target="_blank" rel="noopener">Reddit</a>
 </div>
+<!-- benson-affiliate-tracker -->
+<script>
+(function(){
+  var affiliateDomains = ['amazon.com','amzn.to','awin1.com','awinaffid','prf.hn','shareasale.com','impact.com','cj.com'];
+  function isAffiliate(href){
+    if(!href) return false;
+    return affiliateDomains.some(function(d){return href.indexOf(d)>-1;});
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a');
+    if(!el||!isAffiliate(el.href)) return;
+    if(typeof gtag==='function'){
+      gtag('event','affiliate_click',{
+        'link_url': el.href,
+        'link_text': (el.innerText||'').trim().substring(0,100),
+        'page_path': window.location.pathname
+      });
+    }
+  },true);
+})();
+</script>
 </body>
 </html>
