@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://bestpetpicksdaily.com/sitemap.xml
