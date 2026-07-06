@@ -1,57 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bensons Pet Picks - Top Amazon Pet Products</title>
-  <meta name="description" content="The best pet products on Amazon, reviewed daily. Dogs, cats, and every fur baby.">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#080810;background-image:radial-gradient(ellipse at 50% -10%,#1e0a3c 0%,#080810 65%);min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e0e0e0;display:flex;flex-direction:column;align-items:center;padding:40px 20px 80px}
-    .profile{text-align:center;margin-bottom:28px}
-    .avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#7b3fbc,#1a6bbf);display:flex;align-items:center;justify-content:center;font-size:38px;margin:0 auto 14px;box-shadow:0 0 40px rgba(123,63,188,0.6);animation:pulse 3s ease-in-out infinite}
-    @keyframes pulse{0%,100%{box-shadow:0 0 40px rgba(123,63,188,.55)}50%{box-shadow:0 0 60px rgba(123,63,188,.85)}}
-    .profile h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:3px}
-    .handle{font-size:13px;color:#666;margin-bottom:8px}
-    .bio{font-size:14px;color:#999;max-width:320px;margin:0 auto 14px;line-height:1.55}
-    .socials{display:flex;gap:10px;justify-content:center;margin-bottom:20px}
-    .social-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.1);color:#ccc;transition:all .2s;background:rgba(255,255,255,0.04)}
-    .social-btn:hover{background:rgba(255,255,255,0.1);color:#fff}
-    .stats{display:flex;gap:24px;justify-content:center;margin-bottom:28px;font-size:12px;color:#555}
-    .stat strong{color:#8a5cf7;font-size:14px}
-    .deal-section{width:100%;max-width:500px;margin-bottom:20px}
-    .deal-label{font-size:11px;font-weight:700;color:#ff6b35;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-    .deal-card{background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(123,63,188,.12));border:1px solid rgba(255,107,53,.3);border-radius:16px;padding:16px 18px;display:flex;align-items:center;text-decoration:none;color:inherit;transition:all .2s}
-    .deal-card:hover{border-color:rgba(255,107,53,.6);transform:translateY(-2px)}
-    .deal-emoji{font-size:30px;margin-right:14px;flex-shrink:0}
-    .deal-text{flex:1}
-    .deal-name{font-size:15px;font-weight:700;color:#fff}
-    .deal-desc{font-size:12px;color:#f97316;margin-top:3px}
-    .deal-badge{background:#ff6b35;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-left:10px}
-    .section-label{width:100%;max-width:500px;font-size:11px;font-weight:700;color:#555;letter-spacing:.08em;text-transform:uppercase;margin:16px 0 10px}
-    .links{width:100%;max-width:500px;display:flex;flex-direction:column;gap:10px}
-    a.card{display:flex;align-items:center;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:14px 16px;text-decoration:none;color:inherit;transition:all .2s;position:relative;overflow:hidden}
-    a.card:hover{background:rgba(123,63,188,0.16);border-color:rgba(123,63,188,0.45);transform:translateY(-2px);box-shadow:0 6px 24px rgba(123,63,188,0.18)}
-    .emoji{font-size:26px;margin-right:14px;flex-shrink:0;line-height:1}
-    .text{flex:1;min-width:0}
-    .name{font-size:14px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .desc{font-size:11px;color:#666;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .arrow{color:#444;font-size:15px;margin-left:10px;flex-shrink:0}
-    .badge-new{position:absolute;top:8px;right:36px;background:#7b3fbc;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px}
-    .badge-hot{position:absolute;top:8px;right:36px;background:#ef4444;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px}
-    .blog-link{width:100%;max-width:500px;margin-top:12px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 16px;text-decoration:none;color:#aaa;transition:all .2s;font-size:13px}
-    .blog-link:hover{color:#fff;border-color:rgba(255,255,255,0.15)}
-    .signup-section{width:100%;max-width:500px;margin-top:28px;background:rgba(123,63,188,0.1);border:1px solid rgba(123,63,188,0.2);border-radius:16px;padding:20px;text-align:center}
-    .signup-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
-    .signup-sub{font-size:12px;color:#777;margin-bottom:14px}
-    .signup-form{display:flex;gap:8px;max-width:360px;margin:0 auto}
-    .signup-input{flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:10px 14px;color:#fff;font-size:13px;outline:none}
-    .signup-input::placeholder{color:#555}
-    .signup-btn{background:linear-gradient(135deg,#7b3fbc,#1a6bbf);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;text-decoration:none;display:flex;align-items:center}
-    footer{margin-top:40px;font-size:11px;color:#2a2a2a;text-align:center;line-height:1.8}
-    footer a{color:#333;text-decoration:none}
-  </style>
-<!-- benson-ga -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Best Pet Picks Daily — Best Pet Products For Dogs And Cats On Amazon Reviews</title>
+<meta name="description" content="The best pet products for dogs and cats on Amazon — 372+ expert reviews updated daily. Find top-rated products on Amazon, ranked and reviewed.">
+<meta property="og:title" content="Best Pet Picks Daily">
+<meta property="og:description" content="The best pet products for dogs and cats on Amazon — 372+ reviews updated daily.">
+<meta property="og:type" content="website">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7380981431568233" crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7H2W9L5DP8"></script>
 <script>
@@ -60,88 +17,257 @@
   gtag('js', new Date());
   gtag('config', 'G-7H2W9L5DP8');
 </script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a14;color:#e0e0e0;min-height:100vh}
+nav{background:#0d0d1aee;backdrop-filter:blur(8px);padding:14px 24px;display:flex;gap:24px;align-items:center;position:sticky;top:0;z-index:100;border-bottom:1px solid #1a1a2e}
+nav .logo{font-weight:900;font-size:1em;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav a{color:#9ca3af;text-decoration:none;font-size:.88em}
+nav a:hover{color:#e0e0e0}
+nav .spacer{flex:1}
+nav .cta-btn{background:linear-gradient(135deg,#7b3fbc,#1a6bbf);color:#fff !important;padding:7px 16px;border-radius:8px;font-weight:700;font-size:.82em}
+.hero{background:linear-gradient(160deg,#0d0d1a 0%,#130d2e 50%,#0d1a2e 100%);padding:64px 24px 56px;text-align:center}
+.hero-logo{font-size:2.8em;font-weight:900;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;line-height:1.1}
+.hero-sub{color:#9ca3af;font-size:1.05em;margin-bottom:8px;max-width:520px;margin-left:auto;margin-right:auto}
+.stats{display:flex;gap:24px;justify-content:center;margin:24px 0;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:1.6em;font-weight:900;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{color:#6b7280;font-size:.78em;margin-top:2px}
+.hero-btns{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,#7b3fbc,#1a6bbf);color:#fff;padding:14px 28px;border-radius:12px;font-weight:800;text-decoration:none;font-size:1em}
+.btn-secondary{background:#1f2937;color:#d1d5db;padding:14px 28px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1em;border:1px solid #374151}
+.section{padding:40px 24px;max-width:1100px;margin:0 auto}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px}
+.section-title{font-size:1.2em;font-weight:800;color:#f9fafb}
+.section-link{color:#a855f7;text-decoration:none;font-size:.85em;font-weight:600}
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+footer{background:#0d0d1a;border-top:1px solid #1f2937;padding:28px 24px;text-align:center;color:#4b5563;font-size:.8em}
+footer a{color:#6b7280;text-decoration:none}
+footer a:hover{color:#9ca3af}
+</style>
 </head>
 <body>
-  <div class="profile">
-    <div class="avatar">🐾</div>
-    <h1>Bensons Pet Picks</h1>
-    <div class="handle">@bestpetpicksdaily</div>
-    <div class="bio">Top-rated pet products I actually recommend</div>
-    <div class="socials">
-      <a class="social-btn" href="https://www.tiktok.com/@bestpetpicksdaily" target="_blank" rel="noopener"><span>📱</span> TikTok</a>
-      <a class="social-btn" href="https://www.youtube.com/@bestpetpicksdaily" target="_blank" rel="noopener"><span>▶️</span> YouTube</a>
-      <a class="social-btn" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener"><span>🛒</span> Amazon</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>Daily</strong><br>New Finds</div>
-      <div class="stat"><strong>4&#x2605;+</strong><br>Only</div>
-      <div class="stat"><strong>Free</strong><br>Prime Ship</div>
-    </div>
+<!-- benson-network-bar -->
+<div id="bdp-bar" style="width:100%;background:#0a0a0a;border-bottom:2px solid transparent;background-clip:padding-box;position:relative;z-index:9999">
+  <div style="background:linear-gradient(90deg,#ff0090,#7700ff,#00f5ff);height:2px;width:100%"></div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 16px;flex-wrap:wrap">
+    <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.78em;font-weight:700;color:#fff;letter-spacing:0.03em">BEST DAILY PICKS</span>
+    <span style="color:#444;font-size:0.75em">|</span>
+    <a href="https://bestpetpicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#ff0090'" onmouseout="this.style.color='#aaa'">&#x1F43E; Pet</a>
+    <a href="https://bestfitnesspicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#cc44ff'" onmouseout="this.style.color='#aaa'">&#x1F4AA; Fitness</a>
+    <a href="https://bestkitchenpicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#aa88ff'" onmouseout="this.style.color='#aaa'">&#x1F373; Kitchen</a>
+    <a href="https://besthomedecorpicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#44aaff'" onmouseout="this.style.color='#aaa'">&#x1F3E1; Home Decor</a>
+    <a href="https://bestgardeningpicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#00ccaa'" onmouseout="this.style.color='#aaa'">&#x1F331; Gardening</a>
+    <a href="https://besthomeofficepicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#00ddff'" onmouseout="this.style.color='#aaa'">&#x1F5A5;&#xFE0F; Office</a>
+    <a href="https://bestbabypicksdaily.com" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75em;color:#aaa;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#00f5ff'" onmouseout="this.style.color='#aaa'">&#x1F476; Baby</a>
   </div>
-  <div class="deal-section">
-    <div class="deal-label">🔥 Deal of the Day</div>
-    <a class="deal-card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener">
-      <span class="deal-emoji">🐶</span>
-      <div class="deal-text">
-        <div class="deal-name">Slow Feeder Dog Bowl</div>
-        <div class="deal-desc">Side-by-side videos of dogs eating normally vs. struggling a</div>
-      </div>
-      <span class="deal-badge">TOP PICK</span>
-    </a>
+</div>
+<!-- /benson-network-bar -->
+
+<nav>
+<span class="logo">Best Pet Picks Daily</span>
+<a href="https://bestpetpicksdaily.com/blog/">All Reviews</a>
+<a href="https://bestpetpicksdaily.com/about/">About</a>
+<span class="spacer"></span>
+<a class="cta-btn" href="https://bestpetpicksdaily.com/blog/">Browse 372+ Reviews</a>
+</nav>
+
+<div class="hero">
+<div class="hero-logo">Best Pet Picks Daily</div>
+<p class="hero-sub">The internet's best pet products for dogs and cats on Amazon reviews — ranked, tested, and updated every day.</p>
+<div class="stats">
+<div class="stat"><div class="stat-num">372+</div><div class="stat-label">Expert Reviews</div></div>
+<div class="stat"><div class="stat-num">Daily</div><div class="stat-label">New Posts</div></div>
+<div class="stat"><div class="stat-num">Free</div><div class="stat-label">Always</div></div>
+</div>
+<div class="hero-btns">
+<a class="btn-primary" href="https://bestpetpicksdaily.com/blog/">Browse All Reviews &rarr;</a>
+<a class="btn-secondary" href="https://bestpetpicksdaily.com/about/">About Us</a>
+</div>
+</div>
+
+<div style="max-width:1100px;margin:0 auto;padding:8px 24px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:-8px">
+    <span style="font-size:1.4em">👇</span>
+    <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.92em;font-weight:700;color:#a855f7;letter-spacing:0.02em">START HERE — TODAY'S TOP PICKS</span>
+    <div style="flex:1;height:1px;background:linear-gradient(90deg,#a855f7,transparent)"></div>
   </div>
-  <div class="section-label">All Pet Picks</div>
-  <div class="links">
-    <a class="card" href="https://www.amazon.com/s?k=slow+feeder+dog+bowl+bloat+stop+maze+puzzle&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-hot">HOT</span><span class="emoji">🐶</span><div class="text"><div class="name">Slow Feeder Dog Bowl</div><div class="desc">Side-by-side videos of dogs eating normally vs. struggl</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/?tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛒</span><div class="text"><div class="name">Amazon Pet Favorites</div><div class="desc">Every product I talk about on Amazon</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=automatic+laser+cat+toy+interactive+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-hot">HOT</span><span class="emoji">🐱</span><div class="text"><div class="name">Automatic Laser Cat Toy</div><div class="desc">Cats chasing the laser creates instantly shareable, fun</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=self+cleaning+slicker+brush+dog+cat+grooming+retractable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">✨</span><div class="text"><div class="name">Self-Cleaning Slicker Pet Brush</div><div class="desc">The satisfying moment of pressing the button to eject a</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+lick+mat+suction+cup+bath+distraction+slow+feeder&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛁</span><div class="text"><div class="name">Dog Lick Mat with Suction Cup</div><div class="desc">Bath-time chaos transformed into a calm dog licking pea</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=cat+dog+water+fountain+automatic+circulating+filter+stainless&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">💧</span><div class="text"><div class="name">Pet Water Fountain Filter Dispenser</div><div class="desc">Showing pets refusing a still water bowl then happily d</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=enzyme+pet+odor+eliminator+spray+urine+stain&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">💨</span><div class="text"><div class="name">Enzyme Pet Odor Eliminator</div><div class="desc">Destroys pet odors and stains instantly</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=interactive+automatic+laser+cat+toy+rotating&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🔵</span><div class="text"><div class="name">Interactive Laser Cat Toy</div><div class="desc">Keeps cats entertained for hours</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=orthopedic+memory+foam+dog+bed+large+washable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🛌</span><div class="text"><div class="name">Orthopedic Memory Foam Dog Bed</div><div class="desc">Joint support for dogs of all ages</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=grain+free+dog+treats+natural+training+rewards&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🐶</span><div class="text"><div class="name">Grain Free Dog Treats</div><div class="desc">Healthy treats dogs go crazy for</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=gps+pet+tracker+collar+dog+cat+waterproof&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">📍</span><div class="text"><div class="name">GPS Pet Tracker Collar</div><div class="desc">Never lose your pet again</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+splash+pad+sprinkler+outdoor+summer&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">💦</span><div class="text"><div class="name">Dog Splash Pad</div><div class="desc">Dogs going crazy on a sprinkler pad is instant viral co</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+cooling+vest+evaporative+summer+heat&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🧊</span><div class="text"><div class="name">Dog Cooling Vest</div><div class="desc">Showing a panting dog transform into a relaxed pup afte</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=collapsible+dog+water+bottle+travel+portable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🚰</span><div class="text"><div class="name">Collapsible Dog Travel Water Bottle</div><div class="desc">The one-handed squeeze-and-drink demo is a satisfying 5</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+cat+cooling+mat+pressure+activated+gel+pad&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">❄️</span><div class="text"><div class="name">Pet Cooling Mat</div><div class="desc">A hot dog flopping onto a gel mat and visibly relaxing </div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+car+seat+belt+harness+travel+safety&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🚗</span><div class="text"><div class="name">Dog Seat Belt Car Harness</div><div class="desc">Quick safety demonstration combined with cute car-ride </div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=automatic+pet+feeder+camera+wifi+app+2-way+audio&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">📷</span><div class="text"><div class="name">Automatic Pet Feeder with Camera</div><div class="desc">Watching a pet run to the feeder and hearing the owner'</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=uv+blacklight+flashlight+pet+urine+stain+detector&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🔦</span><div class="text"><div class="name">Pet Urine Detector UV Flashlight</div><div class="desc">Revealing invisible stains glowing under a blacklight i</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+paw+cleaner+muddy+paw+washer+cup+portable&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🐾</span><div class="text"><div class="name">Dog Paw Cleaner Cup</div><div class="desc">Dunking a filthy muddy paw in and pulling out a clean o</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=reusable+pet+hair+remover+roller+couch+furniture+cat+dog+hair&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="emoji">🪄</span><div class="text"><div class="name">Pet Hair Remover Roller</div><div class="desc">The before/after of effortlessly stripping mountains of</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+finger+toothbrush+kit+dental+cleaning+teeth+pet&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-new">NEW</span><span class="emoji">🦷</span><div class="text"><div class="name">Dog Toothbrush Finger Brush Kit</div><div class="desc">Videos showing visibly dirty dog teeth transformed afte</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+sunscreen+spray+SPF+pet+safe+summer&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-new">NEW</span><span class="emoji">☀️</span><div class="text"><div class="name">Dog Sunscreen Spray</div><div class="desc">Summer urgency plus the 'I didn't know dogs needed this</div></div><span class="arrow">&#x203A;</span></a>
-    <a class="card" href="https://www.amazon.com/s?k=dog+car+booster+seat+portable+travel+pet+seat&tag=bestpetpicksd-20" target="_blank" rel="noopener"><span class="badge-new">NEW</span><span class="emoji">🚗</span><div class="text"><div class="name">Portable Dog Car Seat Booster</div><div class="desc">Cute dogs visibly excited for road trips paired with a </div></div><span class="arrow">&#x203A;</span></a>
-  </div>
-  <a class="blog-link" href="https://bestpetpicksdaily.com/blog/" target="_blank" rel="noopener">
-    <span style="font-size:18px">📖</span><span>Read full product reviews &#x2192;</span>
-  </a>
-  <div class="signup-section">
-    <div class="signup-title">Get weekly pet deals in your inbox 🐾</div>
-    <div class="signup-sub">5 Amazon finds every Sunday. Free, no spam.</div>
-    <div class="signup-form">
-      <input class="signup-input" type="email" placeholder="your@email.com">
-      <a class="signup-btn" href="mailto:rilynd81@gmail.com?subject=Subscribe&body=Add+me+to+the+weekly+pet+deals+list!">Join</a>
-    </div>
-  </div>
-  <footer>Updated Jul 06, 2026 &bull; <a href="privacy-policy.html">Privacy Policy</a> &bull; As an Amazon Associate I earn from qualifying purchases.</footer>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-title">Latest Reviews</span>
+<a class="section-link" href="https://bestpetpicksdaily.com/blog/">View all 372 reviews &rarr;</a>
+</div>
+<div class="post-grid">
+<a href="https://bestpetpicksdaily.com/blog/top-rated-dog-crates-and-outdoor-pet-supplies-for-summer-2026-complete-buyer-s-g.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Top Rated Dog Crates and Outdoor Pet Supplies for Summer 2026: Complete Buyer's Guide<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/natural-dog-treats-vs-regular-treats-which-is-worth-the-investment.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:url(https://images.pexels.com/photos/8121142/pexels-photo-8121142.jpeg?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Natural Dog Treats vs. Regular Treats: Which is Worth the Investment?<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/how-to-keep-your-dog-cool-in-summer-raw-food-feeding-tips-by-zeal.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:url(https://images.pexels.com/photos/35096607/pexels-photo-35096607.jpeg?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">How to Keep Your Dog Cool in Summer: Raw Food Feeding Tips by Zeal<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/elevated-dog-beds-for-summer-the-ultimate-guide-to-heat-resistant-pet-furniture.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:url(https://images.pexels.com/photos/28860735/pexels-photo-28860735.png?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Elevated Dog Beds for Summer: The Ultimate Guide to Heat-Resistant Pet Furniture<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/cool-cat-treats-to-keep-your-feline-friend-happy-in-hot-weather.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:url(https://images.pexels.com/photos/5779348/pexels-photo-5779348.jpeg?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Cool Cat Treats to Keep Your Feline Friend Happy in Hot Weather<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/best-raw-dog-food-for-summer-2026-zeal-s-cool-down-nutrition-guide.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:url(https://images.pexels.com/photos/8473518/pexels-photo-8473518.jpeg?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Best Raw Dog Food for Summer 2026: Zeal's Cool-Down Nutrition Guide<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/the-5-star-animal-essentials-pet-parents-love-are-on-sale-at-prime-day-usa-today.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">The 5-star animal essentials pet parents love are on sale at Prime Day - USA Today (2026) — Best Pet Picks Daily<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/ten-summer-tips-for-pet-owners-tufts-now.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Ten Summer Tips for Pet Owners - Tufts Now (2026) — Best Pet Picks Daily<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/studying-dogs-may-reveal-path-to-longer-healthier-life-for-dogs-humans-60-minute.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Studying dogs may reveal path to longer, healthier life, humans | 60 Minutes - CBS News (2026) — Best Pet Picks Daily<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/sandton-spca-shares-winter-care-tips-for-pet-owners-the-citizen.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Sandton SPCA shares winter care tips for pet owners - The Citizen (2026) — Best Pet Picks Daily<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/purdue-veterinary-medicine-launches-pet-care-app-for-apple-platforms-purdue-univ.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">Purdue veterinary medicine launches pet care app for Apple platforms - Purdue University (2026) — Best Pet Picks Daily<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/national-pet-obesity-awareness-day-october-14-2026-national-today.html" style="background:#111827;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#7b3fbc';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#1f2937';this.style.transform='none'">
+<div style="height:160px;background:linear-gradient(135deg,#1c1028,#0d1a2e);display:flex;align-items:center;justify-content:center;font-size:2.5em">🔥</div>
+<div style="padding:14px 16px">
+<div style="font-weight:700;font-size:.9em;line-height:1.4;color:#f0f0f0">NATIONAL PET OBESITY AWARENESS DAY - October 14, 2026 - National Today — Best Pet Picks Daily<span style="background:#22c55e;color:#fff;font-size:.65em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">NEW</span></div>
+</div>
+</a>
+
+</div>
+</div>
+
+<div class="section"><div class="section-header"><span class="section-title">Browse by Category</span><a class="section-link" href="https://bestpetpicksdaily.com/blog/">See all &rarr;</a></div><div class="cat-grid"><a href="https://bestpetpicksdaily.com/blog/dog/" style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px 16px;text-decoration:none;text-align:center;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='#7b3fbc'" onmouseout="this.style.borderColor='#1f2937'">
+<div style="font-size:2em;margin-bottom:8px">🐕</div>
+<div style="font-weight:700;color:#f0f0f0;font-size:.9em">Dog</div>
+<div style="color:#6b7280;font-size:.75em;margin-top:4px">1 reviews</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/cat/" style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px 16px;text-decoration:none;text-align:center;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='#7b3fbc'" onmouseout="this.style.borderColor='#1f2937'">
+<div style="font-size:2em;margin-bottom:8px">🐱</div>
+<div style="font-weight:700;color:#f0f0f0;font-size:.9em">Cat</div>
+<div style="color:#6b7280;font-size:.75em;margin-top:4px">1 reviews</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/grooming/" style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px 16px;text-decoration:none;text-align:center;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='#7b3fbc'" onmouseout="this.style.borderColor='#1f2937'">
+<div style="font-size:2em;margin-bottom:8px">✂️</div>
+<div style="font-weight:700;color:#f0f0f0;font-size:.9em">Grooming</div>
+<div style="color:#6b7280;font-size:.75em;margin-top:4px">1 reviews</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/training/" style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px 16px;text-decoration:none;text-align:center;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='#7b3fbc'" onmouseout="this.style.borderColor='#1f2937'">
+<div style="font-size:2em;margin-bottom:8px">🎓</div>
+<div style="font-weight:700;color:#f0f0f0;font-size:.9em">Training</div>
+<div style="color:#6b7280;font-size:.75em;margin-top:4px">1 reviews</div>
+</a>
+</div></div>
+
+<div class="section"><div class="section-header"><span style="font-size:1.2em;font-weight:800;background:linear-gradient(135deg,#b8860b,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🔥 Featured Partners</span><a class="section-link" href="https://bestpetpicksdaily.com/blog/">Browse all &rarr;</a></div><div class="post-grid"><a href="https://bestpetpicksdaily.com/blog/best-zeal-pet-food-products.html" style="background:linear-gradient(160deg,#1a1200,#1c1400);border:1.5px solid #b8860b;border-radius:14px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;position:relative;transition:border-color .2s,transform .2s;box-shadow:0 0 18px rgba(184,134,11,.18)" onmouseover="this.style.borderColor='#ffd700';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='#b8860b';this.style.transform='none'">
+<span style="position:absolute;top:10px;right:10px;font-size:1.4em;z-index:2">🔥</span>
+<span style="position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;font-size:.65em;font-weight:900;padding:3px 9px;border-radius:10px;z-index:2;letter-spacing:.3px">FEATURED PARTNER</span>
+<div style="height:160px;background:url(https://images.pexels.com/photos/6568950/pexels-photo-6568950.jpeg?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:800;font-size:.92em;line-height:1.4;color:#ffd700">Zeal Pet Food Review: Premium Natural & Raw Pet Nutrition</div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/best-pettreatery-products.html" style="background:linear-gradient(160deg,#1a1200,#1c1400);border:1.5px solid #b8860b;border-radius:14px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;position:relative;transition:border-color .2s,transform .2s;box-shadow:0 0 18px rgba(184,134,11,.18)" onmouseover="this.style.borderColor='#ffd700';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='#b8860b';this.style.transform='none'">
+<span style="position:absolute;top:10px;right:10px;font-size:1.4em;z-index:2">🔥</span>
+<span style="position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;font-size:.65em;font-weight:900;padding:3px 9px;border-radius:10px;z-index:2;letter-spacing:.3px">FEATURED PARTNER</span>
+<div style="height:160px;background:url(https://images.pexels.com/photos/5201246/pexels-photo-5201246.jpeg?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:800;font-size:.92em;line-height:1.4;color:#ffd700">PetTreatery Review: Premium Natural Pet Treats</div>
+</div>
+</a>
+<a href="https://bestpetpicksdaily.com/blog/best-aecojoy-products.html" style="background:linear-gradient(160deg,#1a1200,#1c1400);border:1.5px solid #b8860b;border-radius:14px;text-decoration:none;color:#e0e0e0;display:block;overflow:hidden;position:relative;transition:border-color .2s,transform .2s;box-shadow:0 0 18px rgba(184,134,11,.18)" onmouseover="this.style.borderColor='#ffd700';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='#b8860b';this.style.transform='none'">
+<span style="position:absolute;top:10px;right:10px;font-size:1.4em;z-index:2">🔥</span>
+<span style="position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;font-size:.65em;font-weight:900;padding:3px 9px;border-radius:10px;z-index:2;letter-spacing:.3px">FEATURED PARTNER</span>
+<div style="height:160px;background:url(https://images.pexels.com/photos/28860735/pexels-photo-28860735.png?auto=compress&cs=tinysrgb&h=650&w=940) center/cover"></div>
+<div style="padding:14px 16px">
+<div style="font-weight:800;font-size:.92em;line-height:1.4;color:#ffd700">AECOJOY Pet Furniture Review: Quality Dog Crates & Beds</div>
+</div>
+</a>
+</div></div>
+
+<div style="margin:32px auto;max-width:728px;text-align:center">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7380981431568233" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- Mailchimp Email Signup -->
+<div id="mc-bar" style="position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:12px;z-index:9999;font-family:sans-serif;font-size:14px;box-shadow:0 -2px 10px rgba(0,0,0,0.4);">
+  <span style="font-weight:600;">&#128231; Get the best daily deals in your inbox &mdash; free</span>
+  <form id="mc-form" style="display:flex;gap:8px;align-items:center;" novalidate>
+    <input type="email" id="mc-email" name="EMAIL" placeholder="your@email.com" required style="padding:8px 12px;border:none;border-radius:4px;font-size:14px;width:210px;outline:none;">
+    <button type="submit" style="background:#e91e8c;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:700;font-size:14px;white-space:nowrap;">Subscribe Free</button>
+  </form>
+  <span id="mc-msg" style="display:none;font-weight:600;"></span>
+  <button onclick="document.getElementById('mc-bar').style.display='none';localStorage.setItem('mc-closed','1');" style="background:none;border:none;color:#888;cursor:pointer;font-size:22px;line-height:1;padding:0 4px;">&times;</button>
+</div>
 <script>
 (function(){
-  var s=73789;
-  var el=document.createElement('div');
-  el.style.cssText='text-align:center;font-size:11px;color:#ff6b35;margin-top:6px;font-weight:700;letter-spacing:.05em';
-  var deal=document.querySelector('.deal-section');
-  if(deal)deal.appendChild(el);
-  function tick(){
-    s--;if(s<=0)return;
-    var h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;
-    el.textContent='Deal resets in '+h+'h '+m+'m '+sc+'s';
-    setTimeout(tick,1000);
-  }
-  tick();
+  if(localStorage.getItem('mc-closed')||localStorage.getItem('mc-subscribed')){document.getElementById('mc-bar').style.display='none';}
+  document.getElementById('mc-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=document.getElementById('mc-email').value;
+    var msg=document.getElementById('mc-msg');
+    var cb='mc_cb_'+Math.floor(Math.random()*99999);
+    window[cb]=function(data){
+      document.getElementById('mc-form').style.display='none';
+      msg.style.display='inline';
+      if(data.result==='success'){msg.textContent='✓ You're subscribed!';msg.style.color='#4ade80';localStorage.setItem('mc-subscribed','1');}
+      else{msg.textContent=data.msg||'Something went wrong.';msg.style.color='#f87171';}
+      delete window[cb];
+    };
+    var s=document.createElement('script');
+    s.src='https://us7.list-manage.com/subscribe/post-json?u=77116949f4cbb23d3dcafc8ce&id=1ea4f9ea87&f_id=00e6e4e1f0&EMAIL='+encodeURIComponent(email)+'&c='+cb;
+    document.body.appendChild(s);
+  });
 })();
 </script>
+<!-- End Mailchimp -->
+
+<footer>
+<p style="margin-bottom:8px"><strong style="color:#9ca3af">Best Pet Picks Daily</strong></p>
+<p style="margin-bottom:12px"><a href="https://bestpetpicksdaily.com/blog/">All Reviews</a> &bull; <a href="https://bestpetpicksdaily.com/about/">About</a> &bull; <a href="https://bestpetpicksdaily.com/privacy/">Privacy Policy</a></p>
+<p>As an Amazon Associate we earn from qualifying purchases at no extra cost to you.</p>
+</footer>
+
 </body>
 </html>
