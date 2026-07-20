@@ -38,6 +38,16 @@ li{margin:.4em 0;font-size:.92em}
 <meta name="twitter:image" content="https://images.pexels.com/photos/3782235/pexels-photo-3782235.jpeg">
 <!-- benson-breadcrumb -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Best Pet Picks Daily", "item": "https://bestpetpicksdaily.com/"}, {"@type": "ListItem", "position": 2, "name": "All Reviews", "item": "https://bestpetpicksdaily.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Keep Your Dog Cool in Summer: Raw Food & Hydration Guide", "item": "https://bestpetpicksdaily.com/blog/how-to-keep-your-dog-cool-in-summer-raw-food-hydration-guide.html"}]}</script>
+<!-- benson-alt -->
+<!-- benson-ga -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7H2W9L5DP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7H2W9L5DP8');
+</script>
 </head>
 <body>
 <!-- benson-nav -->
@@ -161,5 +171,56 @@ li{margin:.4em 0;font-size:.92em}
 <a class="related-card" href="https://bestpetpicksdaily.com/blog/top-10-aecojoy-pet-beds-for-outside-beat-the-heat-this-summer.html"><div class="related-card-title">Top 10 Aecojoy Pet Beds For Outside Beat The Heat This Summer</div></a>
   </div>
 </div>
+<!-- benson-footer -->
+<footer style="margin-top:4em;padding:28px 24px;border-top:1px solid #e5e7eb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-align:center">
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-bottom:14px">
+<a href="https://bestpetpicksdaily.com/" style="color:#6b7280;text-decoration:none;font-size:.85em">Home</a>
+<a href="https://bestpetpicksdaily.com/blog/" style="color:#6b7280;text-decoration:none;font-size:.85em">All Reviews</a>
+<a href="https://bestpetpicksdaily.com/about/" style="color:#6b7280;text-decoration:none;font-size:.85em">About</a>
+<a href="https://bestpetpicksdaily.com/privacy/" style="color:#6b7280;text-decoration:none;font-size:.85em">Privacy Policy</a>
+<a href="https://bestpetpicksdaily.com/contact/" style="color:#6b7280;text-decoration:none;font-size:.85em">Contact</a>
+<a href="https://bestpetpicksdaily.com/media-kit/" style="color:#7b3fbc;text-decoration:none;font-size:.85em;font-weight:700">Partner With Us</a>
+</div>
+<p style="color:#9ca3af;font-size:.78em;margin:0">&copy; 2026 Best Pet Picks Daily. All rights reserved. We may earn affiliate commissions from links on this site.</p>
+</footer>
+<!-- benson-email-capture -->
+<div id="benson-popup" style="display:none;position:fixed;bottom:24px;right:24px;z-index:99999;
+  background:#fff;border-radius:18px;padding:24px;max-width:310px;width:92%;
+  box-shadow:0 12px 48px rgba(0,0,0,.2);border:1px solid #f0f0f0;font-family:system-ui,sans-serif">
+  <button onclick="bensonClose()"
+    style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.3em;cursor:pointer;color:#ccc;line-height:1">&times;</button>
+  <h3 style="margin:0 0 6px;font-size:1em;color:#111;line-height:1.3">Get the Best Pet Deals Weekly</h3>
+  <p style="margin:0 0 14px;font-size:.83em;color:#666">Free picks, discounts & gear guides — straight to your inbox.</p>
+  <form action="https://github.us22.list-manage.com/subscribe/post?u=265f3a9f135d549492bf9a270&id=b20f19d114" method="post" target="_blank"
+    style="margin:0" onsubmit="bensonOnSubmit()">
+    <input type="hidden" name="MMERGE1" value="pet">
+    <input type="hidden" name="b_265f3a9f135d549492bf9a270_b20f19d114" value="">
+    <input type="email" name="EMAIL" placeholder="your@email.com" required
+      style="width:100%;box-sizing:border-box;padding:11px 14px;border:1.5px solid #e0e0e0;
+      border-radius:10px;font-size:.9em;margin-bottom:8px;outline:none">
+    <button type="submit"
+      style="width:100%;background:#ff9900;color:#fff;border:none;padding:12px;
+      border-radius:10px;font-weight:700;cursor:pointer;font-size:.95em">Send Me Deals &rarr;</button>
+  </form>
+  <p style="margin:10px 0 0;font-size:.7em;color:#ccc;text-align:center">No spam. Unsubscribe anytime.</p>
+</div>
+<script>
+(function(){
+  function bensonClose(){
+    document.getElementById('benson-popup').style.display='none';
+    sessionStorage.setItem('bpop','1');
+  }
+  window.bensonClose = bensonClose;
+  window.bensonOnSubmit = function(){
+    localStorage.setItem('bsub','1');
+    setTimeout(bensonClose, 500);
+  };
+  if (!localStorage.getItem('bsub') && !sessionStorage.getItem('bpop')) {
+    setTimeout(function(){
+      document.getElementById('benson-popup').style.display='block';
+    }, 20000);
+  }
+})();
+</script>
 </body>
 </html>
